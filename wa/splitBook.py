@@ -2,6 +2,7 @@ from django.core.files.storage import default_storage
 from django.core.files.storage import FileSystemStorage
 from django.core.files import File
 from wand.image import Image
+from wa.models import Book
 #import wikiaudia.settings
 import re,os,sys
 def splitBookIntoPages(f_arg):
@@ -25,12 +26,16 @@ def splitBookIntoPages(f_arg):
 		for i in range(0,no_pages):
 			filen = file_for%i
 			with Image(filename=filen) as img:
-				print type(img)
-				img.save(filename=("temp[%d].jpg"%i))
+				if img:
+					print type(img)
+					img.save(filename=("temp[%d].jpg"%i))
+				else:
+					break;
 			with open("temp[%d].jpg"%i, 'r') as f:
 				myfile = File(f)
 				default_storage.save("temp[%d].jpg"%i,myfile)
 				os.remove("temp[%d].jpg"%i)
+				#close file
 
 
 	'''

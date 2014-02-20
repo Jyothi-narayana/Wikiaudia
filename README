@@ -26,6 +26,9 @@ Now to start your redis server and a celery worker.
 $ redis-server
 # In a new terminal window/tab, start a celery worker
 $ celery -A tasks worker --loglevel=info
+--> USE THIS : python manage.py celeryd -l info at the project level 
+
+
 # In ANOTHER terminal window/tab, enable the Django Celery monitor
 # so that you can manage your tasks from your admin page
 $ python manage.py celerycam

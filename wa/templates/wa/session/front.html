@@ -1,7 +1,7 @@
 {% extends "wa/session/base_session.html" %}
 
 {% block content %}
-<ul>
+<!--<ul>
 <li>Record and Upload Audio</li>
 <li>Digitize the books</li>
 <li>Validate others clips</li>
@@ -23,6 +23,57 @@
 	</form>
 <div id="Wrong Credentials">{{ msg }}</div>
 <h3>Are you yet to register ?</h3>
-<a href="/wa/register">Register Here</a>
+<a href="/wa/register">Register Here</a>-->
+<div class="row">
+<div class="col-sm-offset-4">
+<!--<h1>WikiAudia</h1>-->
+</div></div>
+<div class="col-sm-5 col-sm-offset-1">
+	<div class="ribbons">
+	<!-- Ribbons -->
+		<div class="ribbon ribbon-yellow"><span>Record Parts of AudioBooks Across Languages</span></div>
+	    <div class="ribbon ribbon-green"><span>Digitize the Books</span></div>
+	    <div class="ribbon ribbon-blue"><span>Request conversion of a book of your Choice</span></div>
+	                <!--/ Ribbons -->
+	</div>
+</div>
+<div class="col-sm-5 col-sm-offset-1">
+	{% if form.errors %}
+	<p class="error">Its a invalid user name or pwd !</p>
+	{%  endif %}
+	<div class="row">
+        <div class="col-sm-9">
+			<div class="add-comment styled boxed" id="addcomments">
+				<div class="add-comment-title"><h3></h3></div>
+                    <div class="comment-form">
+						<form action="/wa/auth/" method="post" >{% csrf_token %}
+							<div class="form-inner">
+								<div class="field_text">
+									<label for="username">User Name</label>
+	        						<input type="text" name="username" id="username" value="" />
+	        					</div>
+	        					<div class="field_text">
+									<label for="password">Password</label>
+	        						<input type="password" name="password" id="password" value="" />
+	        					</div>			
+	        					<div class="rowSubmit">
+									<span class="btn btn-red"><input type="submit" value="LOGIN"/></span>
+								</div>
+							</div>
+						</form>
+						<br/>
+						<div id="Wrong Credentials">{{ msg }}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<h6>Not a Registered User ?</h6>
+		<h6><a href="/wa/register">Register Here</a></h6>
+	</div>
+</div>
+
+</div>
 {% endblock %}
+
+
 

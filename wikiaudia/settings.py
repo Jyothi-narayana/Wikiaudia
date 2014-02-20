@@ -108,7 +108,7 @@ STATIC_URL = '/static/'
 #celery settings
 BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
-
+CELERY_IMPORTS = ("wa.tasks", "wa.models","wa.splitBook")
 DEFAULT_FILE_STORAGE='storages.backends.mongodb.GridFSStorage'
 
 GRIDFS_DATABASE = 'fileMongo'
