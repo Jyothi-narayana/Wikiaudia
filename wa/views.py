@@ -33,11 +33,15 @@ def error_processor(request):
         return {}
     
 def front(request):
-    c=RequestContext(request,{'foo':'bar',},[error_processor])
-    if 'error' in request.session:
-        del request.session['error']
-    return render_to_response('wa/session/front.html',c)
-    
+	if request.user.is_authenticated():
+		response=HttpResponseRedirect('/wa/home')
+	else:
+		c=RequestContext(request,{'foo':'bar',},[error_processor])
+		if 'error' in request.session:
+			del request.session['error']
+		response=render_to_response('wa/session/front.html',c)
+	return response
+	
 def logout(request):
     auth.logout(request)
     #return render_to_response('WikiApp/session/front.html')    
@@ -55,43 +59,53 @@ def auth_view(request):
         return HttpResponseRedirect('/wa')
 #Have not done auth.logout(request) 
 def home(request):
-    return render_to_response('wa/session/home.html', {'full_name':request.user.first_name,'languages_known':request.user.languages_known,'points':request.user.points })
+	if request.user.is_authenticated():
+		return render_to_response('wa/session/home.html', {'full_name':request.user.first_name,'languages_known':request.user.languages_known,'points':request.user.points })
     #return render_to_response('WikiApp/session/home.html', {'full_name':request.user.userprofile.Languages})
-
+	else:
+		return HttpResponseRedirect('/wa')
 def register_user(request):
-    if request.method == 'POST':
-        form=CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/wa/register_success')
-    else:
-        form= CustomUserCreationForm()
-    return render(request,  'wa/session/register.html', {
-        'form': form,
-    })
+	if request.method == 'POST':
+		form=CustomUserCreationForm(request.POST)
+	#for field in form.fields:
+	#form.fields[field].required = False
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/wa/register_success')
+	else:
+		form= CustomUserCreationForm()
+	#else:
+	#	return render(request,  'wa/session/register.html', {'form': CustomUserCreationForm(request.POST),})
+		return render(request,  'wa/session/register.html',{'form':form})
+
 def register_success(request):
     return render_to_response('wa/session/register_success.html')
 
 def digiSelection(request):
-    #return render_to_response('wa/AudioDigi/Digitize.html')
-    request.session['action'] = "digitize";
-    langs = Language.objects.all()
-    context = RequestContext(request, {'langs': langs, } )
-    return render(request, 'wa/chooseLanguage.html', context)
+	if request.user.is_authenticated():
+		#return render_to_response('wa/AudioDigi/Digitize.html')
+		request.session['action'] = "digitize";
+		langs = Language.objects.all()
+		context = RequestContext(request, {'langs': langs, } )
+		return render(request, 'wa/chooseLanguage.html', context)
+	else :
+		return HttpResponseRedirect('/wa')
 
 def audioSelection(request):
-    log = logging.getLogger("wa")
-    log.info("in audio Selection")
-    #languages = Language.objects.all()
-    #context = {'all_languages' : all_languages}
-    #return render(request, 'wa/audio.html', context)
-    #return HttpResponse("You're looking at the results of poll ")
-    request.session['action'] = "record";
-    langs = Language.objects.all()
-    #context = {'langs': langs}
-    context = RequestContext(request, {'langs': langs, } )
-    return render(request, 'wa/chooseLanguage.html', context)
-
+	if request.user.is_authenticated():
+		log = logging.getLogger("wa")
+		log.info("in audio Selection")
+		#languages = Language.objects.all()
+		#context = {'all_languages' : all_languages}
+		#return render(request, 'wa/audio.html', context)
+		#return HttpResponse("You're looking at the results of poll ")
+		request.session['action'] = "record";
+		langs = Language.objects.all()
+		#context = {'langs': langs}
+		context = RequestContext(request, {'langs': langs, } )
+		return render(request, 'wa/chooseLanguage.html', context)
+	else :
+		return HttpResponseRedirect('/wa')
 def getImage(request, book_id):
     response = HttpResponse(mimetype = "image/jpg");
     path = os.path.dirname(settings.BASE_DIR) + "/" + "wastore/" + book_id + "/" + "frontcover.jpg"
@@ -104,42 +118,48 @@ def getImage(request, book_id):
     return response; 
 
 def digitize(request, book_id):
-    return render_to_response('wa/AudioDigi/Digitize.html', {'book_id': book_id})
+	if request.user.is_authenticated():
+		return render_to_response('wa/AudioDigi/Digitize.html', {'book_id': book_id})
+	else :
+		return render_to_response('wa/AudioDigi/Digitize.html')
 
 def audioUpload(request, book_id):
-    #print("book_id")
-    #print(book_id)
-    #return HttpResponse("You're looking at poll %s" %  book_id)
-    #Make a function call for choosing a para for the user.
-    #render ash's view
-    # Handle file upload
-    '''
-    Add additional inputs to post to figure out the book and 
-    the paragraph number so that the upload takes place in that folder
-    Current working : Saves the file with a fixed name and the file sent for API processing is fixed as well. 
-    Both of these should be made dynamic 
-    '''
-    if request.method == 'POST':
-        form = DocumentForm(request.POST, request.FILES)
-        if form.is_valid():
-            newdoc = Document(docfile = request.FILES['docfile'])
-            newdoc.docfile.save('Ashu.wav',request.FILES['docfile'])
-            #soundProcessWithAuphonic('documents/Ashu.wav')
-            #soundProcessingWithAuphonicTask.delay('../documents/ashu.mp3')
-            return HttpResponseRedirect(reverse('wa.views.audioSelection'))
-    else:
-        form = DocumentForm() # A empty, unbound form
+	if request.user.is_authenticated():
+		#print("book_id")
+		#print(book_id)
+		#return HttpResponse("You're looking at poll %s" %  book_id)
+		#Make a function call for choosing a para for the user.
+		#render ash's view
+		# Handle file upload
+		'''
+		Add additional inputs to post to figure out the book and 
+		the paragraph number so that the upload takes place in that folder
+		Current working : Saves the file with a fixed name and the file sent for API processing is fixed as well. 
+		Both of these should be made dynamic 
+		'''
+		if request.method == 'POST':
+			form = DocumentForm(request.POST, request.FILES)
+			if form.is_valid():
+				newdoc = Document(docfile = request.FILES['docfile'])
+				newdoc.docfile.save('Ashu.wav',request.FILES['docfile'])
+				#soundProcessWithAuphonic('documents/Ashu.wav')
+				#soundProcessingWithAuphonicTask.delay('../documents/ashu.mp3')
+				return HttpResponseRedirect(reverse('wa.views.audioSelection'))
+		else:
+			form = DocumentForm() # A empty, unbound form
 
-    # Load documents for the list page
-    documents = Document.objects.all()
+		# Load documents for the list page
+		documents = Document.objects.all()
 
-    # Render list page with the documents and the form
-    return render_to_response(
-        'wa/audioUpload.html',
-        {'documents': documents, 'form': form, 'book_id': book_id},
-       
-        context_instance=RequestContext(request)
-    )
+		# Render list page with the documents and the form
+		return render_to_response(
+			'wa/audioUpload.html',
+			{'documents': documents, 'form': form, 'book_id': book_id},
+		   
+			context_instance=RequestContext(request)
+		)
+	else :
+		return render_to_response('/wa')
 def chooseAction(request, book_id):
 	if(request.session['action'] == "digitize"):
 		resp = digitize(request, book_id)
@@ -209,45 +229,48 @@ def langBooks(request):
     
 def uploadBook(request):
     # Handle file upload
-    if request.method == 'POST':
+	if request.user.is_authenticated():
+		if request.method == 'POST':
 
-        form = DocumentForm(request.POST, request.FILES)
-        if form.is_valid():
-            #add book to book table
+			form = DocumentForm(request.POST, request.FILES)
+			if form.is_valid():
+				#add book to book table
 
-            b = Book(lang = Language.objects.get(langName = request.POST.get("language", "")), author = request.POST.get("author", ""), bookName = request.POST.get("bookName", ""))
-            b.save()
-            newdoc = Document(docfile = request.FILES['docfile'])
-            #newdoc.docfile.save(str(b.id) + "/original/originalBook.pdf", request.FILES['docfile'], save=False)
-            newdoc.docfile.save(str(b.id), request.FILES['docfile'], save=False)
-            a = default_storage.open("documents/"+str(b.id))
-            local_fs = FileSystemStorage(location='/tmp/pdf')
-            local_fs.save(a.name,a)
-            #b = default_storage.save(str(b.id) + "/original/originalBook.pdf",a)
-            log = logging.getLogger("wa")
-            log.info((a.name))
-            mod_path = "/tmp/pdf/"+a.name
-            f = open(mod_path, 'r')
-            myfile = File(f)
-            new_name =str(b.id) + "/original/originalBook.pdf"
-            default_storage.save(new_name,myfile)
-            os.remove(mod_path)
-            #--TODO--add it to user history
-            #splitBookIntoPages(str(b.id) + "/original/originalBook.pdf")
-            uploadSplitBookIntoGridFS.delay( str(b.id) + "/original/originalBook.pdf", b.id)
-            # Redirect to the document list after POST
-            #delete the file from default storage
-            default_storage.delete("documents/"+ str(b.id))
-            return HttpResponseRedirect(reverse('wa.views.audioSelection'))
-    else:
-        form = DocumentForm() # A empty, unbound form
+				b = Book(lang = Language.objects.get(langName = request.POST.get("language", "")), author = request.POST.get("author", ""), bookName = request.POST.get("bookName", ""))
+				b.save()
+				newdoc = Document(docfile = request.FILES['docfile'])
+				#newdoc.docfile.save(str(b.id) + "/original/originalBook.pdf", request.FILES['docfile'], save=False)
+				newdoc.docfile.save(str(b.id), request.FILES['docfile'], save=False)
+				a = default_storage.open("documents/"+str(b.id))
+				local_fs = FileSystemStorage(location='/tmp/pdf')
+				local_fs.save(a.name,a)
+				#b = default_storage.save(str(b.id) + "/original/originalBook.pdf",a)
+				log = logging.getLogger("wa")
+				log.info((a.name))
+				mod_path = "/tmp/pdf/"+a.name
+				f = open(mod_path, 'r')
+				myfile = File(f)
+				new_name =str(b.id) + "/original/originalBook.pdf"
+				default_storage.save(new_name,myfile)
+				os.remove(mod_path)
+				#--TODO--add it to user history
+				#splitBookIntoPages(str(b.id) + "/original/originalBook.pdf")
+				uploadSplitBookIntoGridFS.delay( str(b.id) + "/original/originalBook.pdf", b.id)
+				# Redirect to the document list after POST
+				#delete the file from default storage
+				default_storage.delete("documents/"+ str(b.id))
+				return HttpResponseRedirect(reverse('wa.views.audioSelection'))
+		else:
+			form = DocumentForm() # A empty, unbound form
 
-    # Render list page with the documents and the form
-    return render_to_response(
-        'wa/uploadBook.html',
-        {'form': form},
-        context_instance=RequestContext(request)
-    )
+		# Render list page with the documents and the form
+		return render_to_response(
+			'wa/uploadBook.html',
+			{'form': form},
+			context_instance=RequestContext(request)
+		)
+	else :
+		return render_to_response('/wa')
 
 def uploadDigi(request):
     if request.POST.has_key('unicode_data'):

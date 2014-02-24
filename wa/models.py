@@ -60,7 +60,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     
     languages_known=models.CharField(max_length=50)
     
-    phoneNo = models.PositiveIntegerField(default = 0)
+    phoneNo = models.PositiveIntegerField(error_messages={'required': 'Enter a valid Phone Number'})
     loginTimes = models.IntegerField(default=0)
     points = models.IntegerField(default=0)
     
