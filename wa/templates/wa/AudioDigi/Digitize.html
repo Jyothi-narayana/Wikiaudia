@@ -1,6 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
+{% extends "wa/base_main.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>WikiAudia</title>
 		<script type="text/javascript" src="/static/wa/js/pramukhime.js"></script>
@@ -11,12 +13,13 @@
             
         </script>
         <link type="text/css" href="/static/wa/css/pramukhtypepad.css" rel="Stylesheet" />
-	</head>
-	<body>
-	<h1>Digitize the following image !</h1>
 	
 	<!--<img border="0" src="/static/wa/img/hindi.jpg" width="650" height="400" />-->
-    <img border="0" src="/wa/getParagraph/{{ book_id }}/{{ para_id }}/" width="500" height="400" />
+    <div class="row">
+    <div class="col-sm-6">
+        <img border="1px" src="/wa/getParagraph/{{ book_id }}/{{ para_id }}/"  />    
+    </div>
+    <div class="col-sm-5 col-sm-offset-1">
 	
      <table cellpadding="3" cellspacing="0" border="1" class="editor">
             <tr class="editortoolbar">
@@ -61,8 +64,7 @@
                 </td>
             </tr>
         </table>
-		
-        <div id="dialog">
+                <div id="dialog">
                 <div id="dialogheader"></div>
                 <div id="pramukhimehelp">
                     <div style="text-align:center;" id="pramukhimehelptypetitle"><input type="radio" name="helptype" value="quick" checked="checked" onclick="selectHelpType();"/> Quick Help <input type="radio" name="helptype" value="detailed" onclick="selectHelpType();"/> Detailed Help<br /></div>
@@ -83,15 +85,15 @@
             
         </div>
         <br /></br>
-		<button id="uploadDigi">Upload</button>
+        
         <script language="javascript" type="text/javascript">
-		    pramukhIME.addLanguage(PramukhIndic);
+            pramukhIME.addLanguage(PramukhIndic);
 
-			pramukhIME.enable();
-			pramukhIME.onLanguageChange(scriptChangeCallback);
-			var lang = (getCookie('pramukhime_language',':english')).split(':');
-			pramukhIME.setLanguage(lang[1], lang[0]);
-			document.getElementById('typingarea').focus();
+            pramukhIME.enable();
+            pramukhIME.onLanguageChange(scriptChangeCallback);
+            var lang = (getCookie('pramukhime_language',':english')).split(':');
+            pramukhIME.setLanguage(lang[1], lang[0]);
+            document.getElementById('typingarea').focus();
 
             // set width and height of dialog
             var w = window, d = document, e = d.documentElement, g = d.getElementsByTagName('body')[0], x = w.innerWidth || e.clientWidth || g.clientWidth, y = w.innerHeight || e.clientHeight || g.clientHeight;
@@ -156,6 +158,11 @@
             });
             
             
-		</script>
-	</body>
-</html>
+        </script>
+        </div>
+        <div class="row"><button id="uploadDigi">Upload</button></div>
+        
+	</div>	
+
+
+{% endblock %}

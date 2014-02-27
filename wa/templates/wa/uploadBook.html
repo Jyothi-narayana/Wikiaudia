@@ -1,17 +1,54 @@
- <form action="{% url "uploadBook" %}" method="post" enctype="multipart/form-data">
- 	<label></label>
-    {% csrf_token %}
-    	<label>Book Name</label>
-    	<input type="text" name="bookName"></input>
-    	<label>Author</label>
-    	<input type="text" name="author"></input>
-    	<label>Language</label>
-    	<input type="text" name="language"></input>
-        <p>{{ form.non_field_errors }}</p>
-        <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
-        <p>
-            {{ form.docfile.errors }}
-            {{ form.docfile }}
-        </p>
-        <p><input type="submit" value="Upload Book" /></p>
-</form>
+{% extends "wa/base_main.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
+<div class="col-sm-7 col-sm-offset-1">
+    <div class="row">
+        <!--<div class="col-sm-5">-->
+            <div class="add-comment styled boxed" id="addcomments">             
+                <div class="comment-form">
+                    <form action="{% url "uploadBook" %}" method="post" enctype="multipart/form-data">
+                        <div class="form-inner">
+     	                <label></label>
+                            {% csrf_token %}
+                                <div class="field_text">
+                                	<label>Book Name</label>
+                                	<input type="text" name="bookName"></input>
+                                </div>
+                                <div class="field_text">
+                                	<label>Author</label>
+                                	<input type="text" name="author"></input>
+                                </div>
+                                <div class="field_select">
+                                <label>Language</label>
+                                <select id = 'language' class="chosen">
+                                <option value = "default">--Choose a Language--</option>
+                                {% for lang in langs %}
+                                        <option value = "{{lang.langName}}">{{lang.langName}}</option>
+                                {% endfor %}
+                                </select>
+                                <script src="{% static "wa/arctic-sunset-css/js/jquery.chosen.min.js"%}"></script>
+                                <script type="text/javascript">
+                                jQuery(document).ready(function(){
+                                    jQuery('#language').chosen();
+                                });
+                                </script>
+                                </div>
+                                <p>{{ form.non_field_errors }}</p>
+                               
+                                <p>
+                                    {{ form.docfile.errors }}
+                                    {{ form.docfile }}
+                                </p>
+                                <div class="rowSubmit">
+                                <span class="btn btn-red">
+                                <p><input type="submit" value="Upload Book" /></p>
+                                </span></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}
