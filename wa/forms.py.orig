@@ -17,7 +17,17 @@ class CustomUserCreationForm(UserCreationForm):
     A form that creates a user, with no privileges, from the given email and
     password.
     """
+<<<<<<< HEAD
+    OPTIONS = (
+        ("HIN", "Hindi"),
+        ("ENG", "English"),
+        ("KAN", "Kannada"),
+        ("BEN", "Bengali"),
+        )
+    Languages = forms.MultipleChoiceField(widget = forms.SelectMultiple, choices=OPTIONS)
+=======
     OPTIONS = (("ENG","English"),("KAN","Kannada"),("TEL","Telgu"),("TAM","Tamil"))
+>>>>>>> 6a9e7c17ae965f5d8f73b2ed7251b7c9dd15f551
     def __init__(self, *args, **kargs):
         super(CustomUserCreationForm, self).__init__(*args, **kargs)
         del self.fields['username']

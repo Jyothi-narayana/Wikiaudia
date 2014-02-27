@@ -2,23 +2,26 @@
 
 {% block content %}
 
-<h2>Hello</h2>
+
 {% load staticfiles %}
 <script src="{% static "wa/js/jquery.js" %}"></script>
 <script src="{% static "wa/js/audio.js" %}"></script>
-<script type="text/javascript">
-jQuery(document).ready(function(){
-	jQuery("#language").chosen();
-});
-</script>
-<label>Language :</label>
 
-<select class="chosen" id = 'language' onchange = 'displayBooks()'>
+
+
+<select id = 'language' onchange = 'displayBooks()' class="chosen">
 <option value = "default">--Choose a Language--</option>
 {% for lang in langs %}
         <option value = "{{lang.langName}}">{{lang.langName}}</option>
 {% endfor %}
 </select>
+<script src="{% static "wa/arctic-sunset-css/js/jquery.chosen.min.js"%}"></script>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	jQuery('#language').chosen();
+});
+</script>
+<div class="row"></div>
 <div id = 'dispBooks'>
 </div>
 
