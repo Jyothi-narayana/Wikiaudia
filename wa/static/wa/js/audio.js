@@ -17,16 +17,19 @@ function langChanged(event)
 function addBooksToPage(data)
 {
 	//alert(this.oldvalue);
+	console.log(data)
 	dispDiv = document.getElementById('dispBooks');
-	/*var allLinks = $('a[id^="waLink_"]')
-	alert("length" + allLinks.length);
-	for (var aLink in allLinks)
+	var allLinks = $('a[id^="waLink_"]')
+	//alert("length" + allLinks.length);
+	//for (var aLink in allLinks)
+	for(j=0;j<allLinks.length;j++)
 	{
-		alert($(aLink).parent('div#dispBooks').length);
+		aLink = allLinks[j]
+		console.log($(aLink).parent('div#dispBooks').length);
 		//alert(aLink.id);
 		if(($(aLink).parent('div#dispBooks').length) != 0)
 			dispDiv.removeChild(aLink);
-	} */
+	} 
 	var json = JSON.parse(data);
 	//alert(json[0].fields.lang);
 	//alert(dispDiv);

@@ -18,8 +18,8 @@
 			<div class="add-comment styled boxed" id="addcomments">				
                 <div class="comment-form">
 					<form action="/wa/register/" method="post" class="ajax_form">{% csrf_token %}
-						<div class="form-inner">
 
+						<div class="form-inner">						
 							<div class="field_text">
 								<label for="email">Email</label>
 								<input type="email" name="email" id="email" value="" />
@@ -37,23 +37,33 @@
 								<label for="first_name">Name</label>
 								<input type="text" name="first_name" id="first_name" value="" />
 							</div>
-							<div class="field_text">
+							<div class="field_text" style="display:none">
 								<label for="languages_known">Languages</label>
 							    <input type="text" name="languages_known" id="languages_known" value="" />
 							</div>
 							<div class="field_select">
-
-                                <label for="contact_name" class="label_title">Languages</label>
-                                    <select name="contact_name" id="contact_name" multiple data-placeholder="Your Selection">
+								
+                                <label for="languages_known" class="label_title">Languages</label>
+                                {{ form.Languages }}
+                                <!--    <select name="lang" id="lang" multiple data-placeholder="Your Selection">
                                         <option value='english'>English</option>
                                         <option value='hindi'>Hindi</option>
                                         <option value='kannada'>Kannada</option>
                                         <option value='telgu'>Telgu</option>
                                         <option value='tamil'>Tamil</option>
-                                    </select>
+                                    </select>-->
                                 <script type="text/javascript">
+                                	$("#id_Languages").change(function(){
+                                		var foo = []; 
+										$('#id_Languages :selected').each(function(i, selected){ 
+  										foo[i] = $(selected).text(); 
+										});
+										$("#languages_known").val(foo.join(","))
+										
+										console.log($("#languages_known").val());
+                                	});
 								    jQuery(document).ready(function() {
-								        jQuery('#contact_name').chosen({ width: "100%" });
+								        jQuery('#id_Languages').chosen({ width: "100%" });
 								    });
 								</script>
                             </div>
@@ -97,6 +107,8 @@
 	    				{% for field in form %}
 	        				{% for error in field.errors %}
 					            <div class="alert alert-error">
+									<strong>{{ field.label}} :</strong>
+									<!--<strong>{{field.error_messages}}<strong>-->
 									<strong>{{ error|escape }}</strong>
 					            </div>
 	        				{% endfor %}

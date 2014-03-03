@@ -40,60 +40,25 @@
 		    <!--</div>-->
         </div>
     </div>   
-<!--    <div class="sidebar">
-		<li>
-			<ul><a href="/wa/audio">Record</a></ul>
-			<ul><a href="/wa/digiSelection">Digitize</a></ul>
-			<ul><a href="#">Validate</a></ul>
-			<ul><a href="#">Upload</a></ul>
-			<ul><a href="#">History</a></ul>
-			<ul><a href="#">Trending</a></ul>
-		</li>
-	</div>-->
-	<!--
-    <divclass="container">
-	    content
-    	<div class="content " role="main">
-		    <div id="content">
-        		
-    		</div>
-		</div>
-		
-	</div>-->
-	<div id="wrapper">
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand"><a href="/wa/audio">Record Books</a>
-                </li>
-                <li class="sidebar-brand"><a href="/wa/digiSelection">Digitize Books</a>
-                </li>
-                <li class="sidebar-brand"><a href="/wa/audio">Validate Books</a>
-                </li>
-                <li class="sidebar-brand"><a href="/wa/uploadBook/">Upload Book</a>
-                </li>
-                <li class="sidebar-brand"><a href="/wa/audio">Trends</a>
-                </li>                
-            </ul>
-        </div>
-
-        <!-- Page content -->
-        <div id="page-content-wrapper">
-            <!--<div class="content-header">
-                <h1>
-                    <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
-                    Simple Sidebar
-                </h1>
-            </div>-->
-            <!-- Keep all page content within the page-content inset div! -->
-            <div class="page-content inset">
-                <div class="row">
-                    {% block content %}
-					{% endblock %}
+    <div class="container">
+        <!-- content -->
+        <div class="content " role="main">
+            <!--<div class="row">
+                <div class="col-sm-8">
+                    <div class="dropdown-wrap">
+                        <ul class="dropdown clearfix">
+                            <li class="menu-level-0"><a href="#"><span>Contribute</span></a></li>
+                            <li class="menu-level-0"><a href="#"><span>About Us</span></a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            </div>  -->     
         </div>
+    </div>
 
+    <div id="content">
+        {% block content %}
+        {% endblock %}
     </div>
     <!-- Custom JavaScript for the Menu Toggle -->
     <script>

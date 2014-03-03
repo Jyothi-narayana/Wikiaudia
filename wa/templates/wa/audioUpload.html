@@ -1,20 +1,38 @@
+{% extends "wa/base_main.html" %}
+
+{% block content %}
+
 {% load staticfiles %}
 <script src="http://cwilso.github.io/AudioContext-MonkeyPatch/AudioContextMonkeyPatch.js"></script>
 <script src="/static/wa/js/recorderjs/recorder.js"></script>
 <script src="/static/wa/js/index.js"></script>
 <script src="{% static "wa/js/jquery.js" %}"></script>
-<button onclick="toggleRecording(this)">Record</button>
-<button onclick="saveAudio()">Done</button>
+
 
 		<!-- Upload form. Note enctype attribute! -->
-		<img src = "/wa/getParagraph/{{ book_id }}/">
-		<form action="{% url "audioUploadForm" %}" method="post" enctype="multipart/form-data">
+
+		<div class="row">
+		
+		<div class = "col-sm-10">
+		<img src = "/wa/getParagraph/{{ book_id }}/{{ para_id }}/">
+		<div>
+            <a onclick ="toggleRecording(this)" href="#" class="btn btn-round"><span>Record Audio</span></a>
+            <a onclick="saveAudio()" href="#" class="btn btn-round"><span>Save Audio</span></a>
+        </div>
+        <p>Sounds ok? Upload the Audio File!</p>
+		<form action="/wa/audioUploadForm/{{ book_id }}/{{ para_id }}/" method="post" enctype="multipart/form-data">
 			{% csrf_token %}
 			<p>{{ form.non_field_errors }}</p>
 			<p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+			
 			<p>
 				{{ form.docfile.errors }}
 				{{ form.docfile }}
 			</p>
-			<p><input type="submit" value="Upload" /></p>
+			
+			
+			<div class="rowSubmit"><span class="btn btn-red"><p><input type="submit" value="Upload" /></p></span></div>
 		</form>
+		</div>
+		</div>
+{% endblock %}

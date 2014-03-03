@@ -39,23 +39,37 @@ def splitBookIntoPages(f_arg, book_id):
 		i = 0
 		_img = Image(filename=file_for)
 		while continueConversion:
+			
 			filen = file_for%i
-			with Image(filename=filen) as img:
-				if img:
-					print type(img)
-					i=i+1
+			try:
+				with Image(filename=filen) as img:
+					if img:
+						print type(img)
+						img.save(filename=("temp[%d].png"%i))
+					else:
+						continueConversion = False
 
-					img.save(filename=("temp[%d].png"%i))
-				else:
-					continueConversion = False
-			with open("temp[%d].png"%i, 'r') as f:
-				myfile = File(f)
-				para = Paragraph(book = Book.objects.get(pk = book_id))
-				para.save()
-				print "para ID: " + str(para.id)
-				path_to_save = str(book_id) + "/chunks/" + str(para.id) + "/image.png"
-				default_storage.save(path_to_save, myfile)
-				os.remove("temp[%d].png"%i)
+
+				with open("temp[%d].png"%i, 'r') as f:
+					myfile = File(f)
+					if i==0:
+						path_to_save= str(book_id)+"/bookThumbnail.png"
+					else:
+						para = Paragraph(book = Book.objects.get(pk = book_id), status = 're')
+						para.save()
+						path_to_save = str(book_id) + "/chunks/" + str(para.id) + "/image.png"						
+						print "para ID: " + str(para.id)
+					default_storage.save(path_to_save, myfile)
+					os.remove("temp[%d].png"%i)
+				i=i+1
+			except:
+				break
+		print "-------------------"
+		print i
+		#update book table to add number of chunks
+		book = Book.objects.get(pk = book_id)
+		book.numberOfChunks = i-1
+		book.save()
 		os.remove(mod_path)
 		
 	else:

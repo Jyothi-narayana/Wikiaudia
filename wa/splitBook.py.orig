@@ -2,12 +2,8 @@ from django.core.files.storage import default_storage
 from django.core.files.storage import FileSystemStorage
 from django.core.files import File
 from wand.image import Image
-<<<<<<< HEAD
-#from wa.dbOps import addParagraph
-from wa.models import Language,Book, Paragraph, UserHistory, Document
-=======
 from wa.models import Book
->>>>>>> a124d5b21b7a33cc3e63295d9823804f7f91aee2
+from wa.models import Language,Book, Paragraph, UserHistory, Document
 #import wikiaudia.settings
 import re,os,sys
 import logging
@@ -43,13 +39,17 @@ def splitBookIntoPages(f_arg, book_id):
 		i = 0
 		_img = Image(filename=file_for)
 		while continueConversion:
+			
 			filen = file_for%i
-			with Image(filename=filen) as img:
-				if img:
-					print type(img)
-<<<<<<< HEAD
-					i=i+1
+			try:
+				with Image(filename=filen) as img:
+					if img:
+						print type(img)
+						img.save(filename=("temp[%d].png"%i))
+					else:
+						continueConversion = False
 
+<<<<<<< HEAD
 					img.save(filename=("temp[%d].png"%i))
 				else:
 					continueConversion = False
@@ -61,6 +61,24 @@ def splitBookIntoPages(f_arg, book_id):
 				path_to_save = str(book_id) + "/chunks/" + str(para.id) + "/image.png"
 				default_storage.save(path_to_save, myfile)
 				os.remove("temp[%d].png"%i)
+		
+=======
+
+				with open("temp[%d].png"%i, 'r') as f:
+					myfile = File(f)
+					if i==0:
+						path_to_save= str(book_id)+"/bookThumbnail.png"
+					else:
+						para = Paragraph(book = Book.objects.get(pk = book_id))
+						path_to_save = str(book_id) + "/chunks/" + str(para.id) + "/image.png"
+						para.save()
+						print "para ID: " + str(para.id)
+					default_storage.save(path_to_save, myfile)
+					os.remove("temp[%d].png"%i)
+				i=i+1
+			except:
+				break
+>>>>>>> f04d8c8efcae5243be1c0d69ae07e6f4ca200b10
 		os.remove(mod_path)
 		
 	else:
@@ -71,16 +89,6 @@ def to_infinity():
 	while 1: 
 		yield index
 		index += 1
-=======
-					img.save(filename=("temp[%d].jpg"%i))
-				else:
-					break;
-			with open("temp[%d].jpg"%i, 'r') as f:
-				myfile = File(f)
-				default_storage.save("temp[%d].jpg"%i,myfile)
-				os.remove("temp[%d].jpg"%i)
-				#close file
->>>>>>> a124d5b21b7a33cc3e63295d9823804f7f91aee2
 
 
 	'''

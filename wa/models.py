@@ -7,7 +7,7 @@ from django.core.mail import send_mail
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.contrib.auth.models import User
 from django.contrib.auth.models import BaseUserManager
-from django.db.models.signals import pre_save#, post_save, pre_delete, post_delete, request_started, request_finished
+from django.db.models.signals import post_save#, post_save, pre_delete, post_delete, request_started, request_finished
 from django.dispatch import receiver
 import logging
 
@@ -60,7 +60,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     
     languages_known=models.CharField(max_length=50)
     
-    phoneNo = models.PositiveIntegerField(default = 0)
+    phoneNo = models.PositiveIntegerField(error_messages={'required': 'Enter a valid Phone Number'})
     loginTimes = models.IntegerField(default=0)
     points = models.IntegerField(default=0)
     
@@ -92,8 +92,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         Sends an email to this User.
         """
         send_mail(subject, message, from_email, [self.email])
-		
-'''		
+        
+'''     
 class User(models.Model):
     #userId = models.PositiveIntegerField(default = 0) # do not use userID 0 while assigning 
     username = models.EmailField(max_length=254)
@@ -103,7 +103,7 @@ class User(models.Model):
     languages = SeparatedValuesField(max_length = 254, token = ',')# models.CharField() 
     loginTimes = models.IntegerField(default=0)
     points = models.IntegerField(default=0)
-'''	
+''' 
 
 class Language(models.Model):
     #langId = models.IntegerField()
@@ -147,9 +147,19 @@ def checkForCompletion(sender, **kwargs):
     log = logging.getLogger("wa")
     log.setLevel(10)
     log.info("In checkForCompletion")
-    #log.debug("In checkForCompletion")
-    print("In check for completion")
-pre_save.connect(checkForCompletion, sender=Book)
+    book = kwargs['instance']
+    log.info("Coming after ndu")
+    #log.info("right i am still coming")
+    #log.info(sender)
+    log.info("book_id: " + str(book.id))
+    chunks = book.numberOfChunks
+    log.info("chunks: " + str(chunks) + "percentageCompleteAudio: " + str(book.percentageCompleteAudio))
+    if((chunks != 0) and (book.percentageCompleteAudio == chunks)):
+        print("Calling Audio concat")
+    if((chunks!= 0) and (book.percentageCompleteDigi == chunks)):
+        print("Calling pdfGen")
+
+post_save.connect(checkForCompletion, sender=Book)
 
 class UserHistory(models.Model):
     user = models.ForeignKey(CustomUser)

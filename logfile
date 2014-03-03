@@ -1,107 +1,664 @@
-[18/Feb/2014 15:57:53] INFO [wa:84] in audio Selection
-[18/Feb/2014 16:21:56] INFO [wa:148] In checkForCompletion
-[18/Feb/2014 16:21:56] INFO [wa:220] documents/40
-[18/Feb/2014 16:21:56] INFO [wa:16] hiiii
-[18/Feb/2014 16:21:56] INFO [wa:17] 40/original/originalBook.pdf
-[18/Feb/2014 16:22:00] INFO [wa:84] in audio Selection
-[18/Feb/2014 16:35:00] INFO [wa:148] In checkForCompletion
-[18/Feb/2014 16:35:01] INFO [wa:220] documents/41
-[18/Feb/2014 16:35:01] INFO [wa:84] in audio Selection
-[18/Feb/2014 16:41:09] INFO [wa:148] In checkForCompletion
-[18/Feb/2014 16:41:10] INFO [wa:220] documents/42
-[18/Feb/2014 16:41:10] INFO [wa:84] in audio Selection
-[18/Feb/2014 16:43:06] INFO [wa:148] In checkForCompletion
-[18/Feb/2014 16:43:07] INFO [wa:220] documents/43
-[18/Feb/2014 16:43:07] INFO [wa:84] in audio Selection
-[18/Feb/2014 17:10:20] INFO [wa:148] In checkForCompletion
-[18/Feb/2014 17:10:21] INFO [wa:220] documents/44
-[18/Feb/2014 17:10:21] INFO [wa:84] in audio Selection
-[18/Feb/2014 17:16:37] INFO [wa:148] In checkForCompletion
-[18/Feb/2014 17:16:38] INFO [wa:220] documents/45
-[18/Feb/2014 17:16:38] INFO [wa:84] in audio Selection
-[18/Feb/2014 17:18:05] INFO [wa:148] In checkForCompletion
-[18/Feb/2014 17:18:05] INFO [wa:220] documents/46
-[18/Feb/2014 17:18:05] INFO [wa:84] in audio Selection
-[18/Feb/2014 17:23:01] INFO [wa:148] In checkForCompletion
-[18/Feb/2014 17:23:02] INFO [wa:220] documents/47
-[18/Feb/2014 17:23:02] INFO [wa:18] hiiii
-[18/Feb/2014 17:23:02] INFO [wa:19] 47/original/originalBook.pdf
-[18/Feb/2014 17:23:02] INFO [wa:84] in audio Selection
-[18/Feb/2014 17:27:55] INFO [wa:148] In checkForCompletion
-[18/Feb/2014 17:27:55] INFO [wa:220] documents/48
-[18/Feb/2014 17:27:55] INFO [wa:84] in audio Selection
-[19/Feb/2014 18:39:34] INFO [wa:149] In checkForCompletion
-[19/Feb/2014 18:39:58] INFO [wa:149] In checkForCompletion
-[19/Feb/2014 19:42:43] INFO [wa:149] In checkForCompletion
-[19/Feb/2014 19:43:40] INFO [wa:149] In checkForCompletion
-[19/Feb/2014 19:44:11] INFO [wa:149] In checkForCompletion
-[19/Feb/2014 19:44:44] INFO [wa:149] In checkForCompletion
-[19/Feb/2014 19:59:52] INFO [wa:149] In checkForCompletion
-[19/Feb/2014 19:59:53] INFO [wa:220] documents/5
-[19/Feb/2014 19:59:53] INFO [wa:84] in audio Selection
-[20/Feb/2014 11:06:10] INFO [wa:149] In checkForCompletion
-[20/Feb/2014 11:06:11] INFO [wa:220] documents/6
-[20/Feb/2014 11:06:11] INFO [wa:84] in audio Selection
-[20/Feb/2014 11:08:12] INFO [wa:149] In checkForCompletion
-[20/Feb/2014 11:08:12] INFO [wa:220] documents/7
-[20/Feb/2014 11:08:12] INFO [wa:20] 7/original/originalBook.pdf
-[20/Feb/2014 11:08:12] INFO [wa:84] in audio Selection
-[20/Feb/2014 11:09:18] INFO [wa:149] In checkForCompletion
-[20/Feb/2014 11:09:18] INFO [wa:220] documents/8
-[20/Feb/2014 11:09:18] INFO [wa:20] 8/original/originalBook.pdf
-[20/Feb/2014 11:09:18] INFO [wa:84] in audio Selection
-[20/Feb/2014 11:13:20] INFO [wa:149] In checkForCompletion
-[20/Feb/2014 11:13:20] INFO [wa:220] documents/9
-[20/Feb/2014 11:13:20] INFO [wa:20] 9/original/originalBook.pdf
-[20/Feb/2014 11:13:20] INFO [wa:84] in audio Selection
-[20/Feb/2014 11:15:18] INFO [wa:149] In checkForCompletion
-[20/Feb/2014 11:15:19] INFO [wa:220] documents/10
-[20/Feb/2014 11:15:19] INFO [wa:20] 10/original/originalBook.pdf
-[20/Feb/2014 11:15:19] INFO [wa:84] in audio Selection
-[20/Feb/2014 11:27:42] INFO [wa:149] In checkForCompletion
-[20/Feb/2014 11:27:42] INFO [wa:220] documents/11
-[20/Feb/2014 11:27:42] INFO [wa:20] 11/original/originalBook.pdf
-[20/Feb/2014 11:27:42] INFO [wa:84] in audio Selection
-[20/Feb/2014 11:30:17] INFO [wa:149] In checkForCompletion
-[20/Feb/2014 11:30:17] INFO [wa:220] documents/12
-[20/Feb/2014 11:30:17] INFO [wa:20] 12/original/originalBook.pdf
-[20/Feb/2014 11:30:17] INFO [wa:84] in audio Selection
-[20/Feb/2014 11:34:15] INFO [wa:149] In checkForCompletion
-[20/Feb/2014 11:34:15] INFO [wa:220] documents/13
-[20/Feb/2014 11:34:15] INFO [wa:20] 13/original/originalBook.pdf
-[20/Feb/2014 11:34:15] INFO [wa:84] in audio Selection
-[20/Feb/2014 11:35:38] INFO [wa:149] In checkForCompletion
-[20/Feb/2014 11:35:38] INFO [wa:220] documents/14
-[20/Feb/2014 11:35:38] INFO [wa:20] 14/original/originalBook.pdf
-[20/Feb/2014 11:35:38] INFO [wa:84] in audio Selection
-[20/Feb/2014 11:38:18] INFO [wa:149] In checkForCompletion
-[20/Feb/2014 11:38:18] INFO [wa:220] documents/15
-[20/Feb/2014 11:38:18] INFO [wa:20] 15/original/originalBook.pdf
-[20/Feb/2014 11:38:18] INFO [wa:84] in audio Selection
-[20/Feb/2014 12:04:02] INFO [wa:149] In checkForCompletion
-[20/Feb/2014 12:04:02] INFO [wa:228] documents/16
-[20/Feb/2014 12:04:02] INFO [wa:20] 16/original/originalBook.pdf
-[20/Feb/2014 12:04:02] INFO [wa:84] in audio Selection
-[24/Feb/2014 13:33:48] INFO [wa:84] in audio Selection
-[24/Feb/2014 13:35:24] INFO [wa:84] in audio Selection
-[24/Feb/2014 13:36:33] INFO [wa:149] In checkForCompletion
-[24/Feb/2014 13:36:33] INFO [wa:228] documents/17
-[24/Feb/2014 13:36:33] INFO [wa:20] 17/original/originalBook.pdf
-[24/Feb/2014 13:36:33] INFO [wa:84] in audio Selection
-[24/Feb/2014 13:43:14] INFO [wa:149] In checkForCompletion
-[24/Feb/2014 13:44:19] INFO [wa:149] In checkForCompletion
-[24/Feb/2014 13:44:24] INFO [wa:149] In checkForCompletion
-[24/Feb/2014 13:46:32] INFO [wa:149] In checkForCompletion
-[24/Feb/2014 13:46:32] INFO [wa:228] documents/21
-[24/Feb/2014 13:46:32] INFO [wa:20] 21/original/originalBook.pdf
-[24/Feb/2014 14:01:45] INFO [wa:149] In checkForCompletion
-[24/Feb/2014 14:01:45] INFO [wa:228] documents/22
-[24/Feb/2014 14:01:45] INFO [wa:20] 22/original/originalBook.pdf
-[24/Feb/2014 14:01:45] INFO [wa:84] in audio Selection
-[24/Feb/2014 14:02:55] INFO [wa:149] In checkForCompletion
-[24/Feb/2014 14:02:56] INFO [wa:228] documents/23
-[24/Feb/2014 14:02:56] INFO [wa:20] 23/original/originalBook.pdf
-[24/Feb/2014 14:02:56] INFO [wa:84] in audio Selection
-[24/Feb/2014 19:59:01] INFO [wa:84] in audio Selection
-[24/Feb/2014 19:59:24] INFO [wa:84] in audio Selection
-[25/Feb/2014 13:04:50] INFO [wa:84] in audio Selection
+[27/Feb/2014 21:24:16] INFO [wa:100] in audio Selection
+[27/Feb/2014 21:27:46] INFO [wa:100] in audio Selection
+[27/Feb/2014 21:29:08] INFO [wa:100] in audio Selection
+[27/Feb/2014 21:29:10] INFO [wa:100] in audio Selection
+[28/Feb/2014 12:20:40] INFO [wa:241] Upload Book :
+[28/Feb/2014 12:20:40] INFO [wa:242] English
+[28/Feb/2014 12:20:40] INFO [wa:149] In checkForCompletion
+[28/Feb/2014 12:20:41] INFO [wa:256] documents/25
+[28/Feb/2014 12:20:41] INFO [wa:20] 25/original/originalBook.pdf
+[28/Feb/2014 12:20:41] INFO [wa:101] in audio Selection
+[01/Mar/2014 05:49:15] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 06:38:29] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 06:39:08] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 06:41:12] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 06:41:41] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 06:52:39] INFO [wa:10] Coming into try block
+[01/Mar/2014 06:52:39] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 06:53:56] INFO [wa:10] Coming into try block
+[01/Mar/2014 06:53:56] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 06:53:56] INFO [wa:150] right i am still coming
+[01/Mar/2014 06:54:59] INFO [wa:10] Coming into try block
+[01/Mar/2014 06:54:59] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 06:54:59] INFO [wa:150] right i am still coming
+[01/Mar/2014 06:57:53] INFO [wa:10] Coming into try block
+[01/Mar/2014 06:57:53] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 06:57:53] INFO [wa:150] right i am still coming
+[01/Mar/2014 07:01:56] INFO [wa:10] Coming into try block
+[01/Mar/2014 07:01:56] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 07:01:56] INFO [wa:150] right i am still coming
+[01/Mar/2014 07:01:56] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 07:03:13] INFO [wa:10] Coming into try block
+[01/Mar/2014 07:03:13] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 07:03:13] INFO [wa:150] right i am still coming
+[01/Mar/2014 07:03:13] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 07:03:14] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 07:03:14] INFO [wa:150] right i am still coming
+[01/Mar/2014 07:03:14] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 07:03:14] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 07:03:14] INFO [wa:150] right i am still coming
+[01/Mar/2014 07:03:14] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 07:09:07] INFO [wa:10] Coming into try block
+[01/Mar/2014 07:09:07] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 07:09:07] INFO [wa:150] right i am still coming
+[01/Mar/2014 07:09:07] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 07:09:07] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 07:09:07] INFO [wa:150] right i am still coming
+[01/Mar/2014 07:09:07] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 07:09:07] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 07:09:07] INFO [wa:150] right i am still coming
+[01/Mar/2014 07:09:07] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 07:10:32] INFO [wa:10] Coming into try block
+[01/Mar/2014 07:11:11] INFO [wa:10] Coming into try block
+[01/Mar/2014 07:17:45] INFO [wa:10] Coming into try block
+[01/Mar/2014 07:28:24] INFO [wa:247] Upload Book :
+[01/Mar/2014 07:28:24] INFO [wa:248] Kannada
+[01/Mar/2014 07:28:25] INFO [wa:262] documents/27
+[01/Mar/2014 07:28:25] INFO [wa:20] 27/original/originalBook.pdf
+[01/Mar/2014 07:28:25] INFO [wa:103] in audio Selection
+[01/Mar/2014 08:48:54] INFO [wa:10] Coming into try block
+[01/Mar/2014 08:48:54] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 08:48:54] INFO [wa:150] right i am still coming
+[01/Mar/2014 08:48:54] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 08:48:54] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 08:48:54] INFO [wa:150] right i am still coming
+[01/Mar/2014 08:48:54] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 08:48:54] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 08:48:54] INFO [wa:150] right i am still coming
+[01/Mar/2014 08:48:54] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 08:59:52] INFO [wa:247] Upload Book :
+[01/Mar/2014 08:59:52] INFO [wa:248] Kannada
+[01/Mar/2014 08:59:53] INFO [wa:262] documents/28
+[01/Mar/2014 08:59:53] INFO [wa:20] 28/original/originalBook.pdf
+[01/Mar/2014 08:59:53] INFO [wa:103] in audio Selection
+[01/Mar/2014 09:00:36] INFO [wa:247] Upload Book :
+[01/Mar/2014 09:00:36] INFO [wa:248] Hindi
+[01/Mar/2014 09:00:36] INFO [wa:262] documents/29
+[01/Mar/2014 09:00:36] INFO [wa:20] 29/original/originalBook.pdf
+[01/Mar/2014 09:00:36] INFO [wa:103] in audio Selection
+[01/Mar/2014 09:01:50] INFO [wa:247] Upload Book :
+[01/Mar/2014 09:01:50] INFO [wa:248] English
+[01/Mar/2014 09:01:50] INFO [wa:262] documents/30
+[01/Mar/2014 09:01:51] INFO [wa:20] 30/original/originalBook.pdf
+[01/Mar/2014 09:01:51] INFO [wa:103] in audio Selection
+[01/Mar/2014 09:02:30] INFO [wa:247] Upload Book :
+[01/Mar/2014 09:02:30] INFO [wa:248] Kannada
+[01/Mar/2014 09:02:30] INFO [wa:262] documents/31
+[01/Mar/2014 09:02:30] INFO [wa:103] in audio Selection
+[01/Mar/2014 09:04:35] INFO [wa:10] Coming into try block
+[01/Mar/2014 09:04:35] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:04:35] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:04:35] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:04:35] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:04:35] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:04:35] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:04:36] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:04:36] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:04:36] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:05:10] INFO [wa:20] 31/original/originalBook.pdf
+[01/Mar/2014 09:07:29] INFO [wa:247] Upload Book :
+[01/Mar/2014 09:07:29] INFO [wa:248] Kannada
+[01/Mar/2014 09:07:30] INFO [wa:262] documents/32
+[01/Mar/2014 09:07:30] INFO [wa:20] 32/original/originalBook.pdf
+[01/Mar/2014 09:07:30] INFO [wa:103] in audio Selection
+[01/Mar/2014 09:07:35] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:07:35] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:07:35] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:07:36] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:07:36] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:07:36] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:07:37] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:07:37] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:07:37] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:07:37] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:07:37] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:07:37] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:07:38] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:07:38] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:07:38] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:07:39] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:07:39] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:07:39] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:08:21] INFO [wa:10] Coming into try block
+[01/Mar/2014 09:08:21] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:08:21] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:08:21] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:08:21] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:08:21] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:08:21] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:08:21] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:08:21] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:08:21] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:10:42] INFO [wa:247] Upload Book :
+[01/Mar/2014 09:10:42] INFO [wa:248] English
+[01/Mar/2014 09:10:42] INFO [wa:262] documents/33
+[01/Mar/2014 09:10:42] INFO [wa:20] 33/original/originalBook.pdf
+[01/Mar/2014 09:10:42] INFO [wa:103] in audio Selection
+[01/Mar/2014 09:11:45] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:11:45] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:11:45] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:11:45] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:11:45] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:11:45] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:11:46] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:11:46] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:11:46] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:11:47] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:11:47] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:11:47] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:11:48] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:11:48] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:11:48] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:11:49] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:11:49] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:11:49] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:11:50] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:11:50] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:11:50] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:11:52] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:11:52] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:11:52] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:11:53] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:11:53] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:11:53] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:11:54] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:11:54] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:11:54] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:11:55] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:11:55] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:11:55] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:11:56] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:11:56] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:11:56] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:11:57] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:11:57] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:11:57] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:11:58] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:11:58] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:11:58] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:00] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:00] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:00] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:01] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:01] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:01] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:01] INFO [wa:10] Coming into try block
+[01/Mar/2014 09:12:01] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:01] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:01] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:02] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:02] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:02] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:02] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:02] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:02] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:02] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:02] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:02] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:03] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:03] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:03] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:05] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:05] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:05] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:06] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:06] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:06] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:07] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:07] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:07] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:08] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:08] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:08] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:10] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:10] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:10] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:11] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:11] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:11] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:12] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:12] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:12] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:13] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:13] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:13] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:14] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:14] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:14] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:16] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:16] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:16] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:17] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:17] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:17] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:18] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:18] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:18] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:19] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:19] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:19] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:20] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:20] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:20] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:21] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:21] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:21] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:22] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:22] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:22] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:23] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:23] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:23] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:24] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:24] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:24] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:25] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:25] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:25] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:26] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:26] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:26] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:27] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:27] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:27] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:28] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:28] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:28] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:29] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:29] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:29] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:30] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:30] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:30] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:31] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:31] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:31] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:32] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:32] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:32] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:33] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:33] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:33] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:34] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:34] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:34] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:35] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:35] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:35] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:36] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:36] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:36] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:37] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:37] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:37] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:38] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:38] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:38] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:39] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:39] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:39] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:40] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:40] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:40] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:42] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:42] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:42] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:43] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:43] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:43] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:44] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:44] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:44] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:45] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:45] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:45] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:46] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:46] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:46] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:47] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:47] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:47] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:48] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:48] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:48] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:49] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:49] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:49] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:49] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:49] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:49] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:51] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:51] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:51] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:52] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:52] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:52] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:53] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:53] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:53] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:54] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:54] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:54] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:55] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:55] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:55] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:56] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:56] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:56] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:57] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:57] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:57] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:58] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:58] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:58] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:12:59] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:12:59] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:12:59] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:01] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:01] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:01] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:02] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:02] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:02] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:02] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:02] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:02] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:03] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:03] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:03] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:04] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:04] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:04] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:06] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:06] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:06] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:06] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:06] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:06] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:07] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:07] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:07] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:08] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:08] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:08] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:10] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:10] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:10] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:10] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:10] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:10] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:11] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:11] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:11] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:13] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:13] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:13] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:13] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:13] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:13] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:14] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:14] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:14] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:16] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:16] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:16] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:17] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:17] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:17] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:18] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:18] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:18] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:18] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:18] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:18] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:20] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:20] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:20] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:21] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:21] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:21] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:22] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:22] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:22] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:23] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:23] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:23] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:23] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:23] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:23] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:25] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:25] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:25] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:26] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:26] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:26] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:27] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:27] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:27] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:28] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:28] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:28] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:29] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:29] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:29] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:30] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:30] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:30] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:31] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:31] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:31] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:32] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:32] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:32] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:33] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:33] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:33] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:34] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:34] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:34] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:35] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:35] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:35] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:36] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:36] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:36] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:37] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:37] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:37] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:38] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:38] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:38] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:39] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:39] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:39] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:40] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:40] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:40] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:42] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:42] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:42] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:43] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:43] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:43] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:44] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:44] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:44] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:45] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:45] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:45] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:45] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:45] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:45] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:46] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:46] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:46] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:47] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:47] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:47] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:13:48] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 09:13:48] INFO [wa:150] right i am still coming
+[01/Mar/2014 09:13:48] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 09:14:20] INFO [wa:10] Coming into try block
+[01/Mar/2014 09:16:29] INFO [wa:10] Coming into try block
+[01/Mar/2014 11:35:43] INFO [wa:103] in audio Selection
+[01/Mar/2014 11:35:49] INFO [wa:10] Coming into try block
+[01/Mar/2014 11:35:49] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 11:35:49] INFO [wa:150] right i am still coming
+[01/Mar/2014 11:35:49] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 11:35:49] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 11:35:49] INFO [wa:150] right i am still coming
+[01/Mar/2014 11:35:49] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 11:35:49] INFO [wa:149] In checkForCompletion
+[01/Mar/2014 11:35:49] INFO [wa:150] right i am still coming
+[01/Mar/2014 11:35:49] INFO [wa:151] <class 'wa.models.Paragraph'>
+[01/Mar/2014 11:36:21] INFO [wa:103] in audio Selection
+[01/Mar/2014 11:36:48] INFO [wa:10] Coming into try block
+[02/Mar/2014 20:58:23] INFO [wa:10] Coming into try block
+[02/Mar/2014 21:03:24] INFO [wa:149] In checkForCompletion
+[02/Mar/2014 21:03:24] INFO [wa:151] Coming after instance fetching
+[02/Mar/2014 21:48:48] INFO [wa:149] In checkForCompletion
+[02/Mar/2014 21:48:48] INFO [wa:151] Coming after instance fetching
+[02/Mar/2014 21:49:38] INFO [wa:149] In checkForCompletion
+[02/Mar/2014 21:49:38] INFO [wa:151] Coming after instance fetching
+[02/Mar/2014 21:50:25] INFO [wa:149] In checkForCompletion
+[02/Mar/2014 21:50:25] INFO [wa:151] Coming after instance fetching
+[02/Mar/2014 21:55:02] INFO [wa:149] In checkForCompletion
+[02/Mar/2014 21:55:02] INFO [wa:151] Coming after instance fetching
+[02/Mar/2014 21:59:53] INFO [wa:154] Coming after ndu
+[02/Mar/2014 22:01:13] INFO [wa:149] Hello world
+[02/Mar/2014 22:01:13] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:01:13] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:01:53] INFO [wa:149] Hello world
+[02/Mar/2014 22:01:53] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:01:53] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:02:51] INFO [wa:149] Hello world
+[02/Mar/2014 22:02:51] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:02:51] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:03:07] INFO [wa:149] Hello world
+[02/Mar/2014 22:03:07] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:03:07] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:03:21] INFO [wa:149] Hello world
+[02/Mar/2014 22:03:21] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:03:21] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:03:21] INFO [wa:156] book_id: 32
+[02/Mar/2014 22:06:09] INFO [wa:149] Hello world
+[02/Mar/2014 22:06:09] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:06:09] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:06:09] INFO [wa:156] book_id: 33
+[02/Mar/2014 22:28:30] INFO [wa:149] Hello world
+[02/Mar/2014 22:28:30] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:28:30] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:28:30] INFO [wa:156] book_id: 32
+[02/Mar/2014 22:30:55] INFO [wa:149] Hello world
+[02/Mar/2014 22:30:55] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:30:55] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:30:55] INFO [wa:156] book_id: 32
+[02/Mar/2014 22:32:16] INFO [wa:149] Hello world
+[02/Mar/2014 22:32:16] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:32:16] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:32:16] INFO [wa:156] book_id: 32
+[02/Mar/2014 22:33:30] INFO [wa:10] Coming into try block
+[02/Mar/2014 22:33:30] INFO [wa:149] Hello world
+[02/Mar/2014 22:33:30] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:33:30] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:33:30] INFO [wa:156] book_id: 33
+[02/Mar/2014 22:33:30] INFO [wa:149] Hello world
+[02/Mar/2014 22:33:30] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:33:30] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:33:30] INFO [wa:156] book_id: 33
+[02/Mar/2014 22:33:30] INFO [wa:149] Hello world
+[02/Mar/2014 22:33:30] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:33:30] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:33:30] INFO [wa:156] book_id: 33
+[02/Mar/2014 22:36:46] INFO [wa:10] Coming into try block
+[02/Mar/2014 22:40:04] INFO [wa:10] Coming into try block
+[02/Mar/2014 22:50:18] INFO [wa:247] Upload Book :
+[02/Mar/2014 22:50:18] INFO [wa:248] Bengali
+[02/Mar/2014 22:50:18] INFO [wa:149] Hello world
+[02/Mar/2014 22:50:18] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:50:18] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:52:11] INFO [wa:247] Upload Book :
+[02/Mar/2014 22:52:11] INFO [wa:248] Bengali
+[02/Mar/2014 22:52:11] INFO [wa:149] Hello world
+[02/Mar/2014 22:52:11] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:52:11] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:52:11] INFO [wa:155] book_id: None
+[02/Mar/2014 22:52:12] INFO [wa:262] documents/34
+[02/Mar/2014 22:52:12] INFO [wa:20] 34/original/originalBook.pdf
+[02/Mar/2014 22:52:12] INFO [wa:103] in audio Selection
+[03/Mar/2014 00:10:18] INFO [wa:247] Upload Book :
+[03/Mar/2014 00:10:18] INFO [wa:248] Telgu
+[03/Mar/2014 00:10:18] INFO [wa:149] Hello world
+[03/Mar/2014 00:10:18] INFO [wa:150] In checkForCompletion
+[03/Mar/2014 00:10:18] INFO [wa:152] Coming after ndu
+[03/Mar/2014 00:10:18] INFO [wa:155] book_id: None
+[03/Mar/2014 00:10:18] INFO [wa:262] documents/35
+[03/Mar/2014 00:10:18] INFO [wa:20] 35/original/originalBook.pdf
+[03/Mar/2014 00:10:18] INFO [wa:103] in audio Selection
+[03/Mar/2014 00:15:04] INFO [wa:247] Upload Book :
+[03/Mar/2014 00:15:04] INFO [wa:248] Telgu
+[03/Mar/2014 00:15:04] INFO [wa:149] Hello world
+[03/Mar/2014 00:15:04] INFO [wa:150] In checkForCompletion
+[03/Mar/2014 00:15:04] INFO [wa:152] Coming after ndu
+[03/Mar/2014 00:15:04] INFO [wa:155] book_id: None
+[03/Mar/2014 00:15:04] INFO [wa:262] documents/36
+[03/Mar/2014 00:15:04] INFO [wa:20] 36/original/originalBook.pdf
+[03/Mar/2014 00:15:04] INFO [wa:103] in audio Selection
+[03/Mar/2014 00:20:22] INFO [wa:149] Hello world
+[03/Mar/2014 00:20:22] INFO [wa:150] In checkForCompletion
+[03/Mar/2014 00:20:22] INFO [wa:152] Coming after ndu
+[03/Mar/2014 00:20:22] INFO [wa:155] book_id: 36
+[03/Mar/2014 00:22:38] INFO [wa:247] Upload Book :
+[03/Mar/2014 00:22:38] INFO [wa:248] Hindi
+[03/Mar/2014 00:22:38] INFO [wa:149] Hello world
+[03/Mar/2014 00:22:38] INFO [wa:150] In checkForCompletion
+[03/Mar/2014 00:22:38] INFO [wa:152] Coming after ndu
+[03/Mar/2014 00:22:38] INFO [wa:155] book_id: None
+[03/Mar/2014 00:22:39] INFO [wa:262] documents/37
+[03/Mar/2014 00:22:39] INFO [wa:20] 37/original/originalBook.pdf
+[03/Mar/2014 00:22:39] INFO [wa:103] in audio Selection
+[03/Mar/2014 00:22:51] INFO [wa:149] Hello world
+[03/Mar/2014 00:22:51] INFO [wa:150] In checkForCompletion
+[03/Mar/2014 00:22:51] INFO [wa:152] Coming after ndu
+[03/Mar/2014 00:22:51] INFO [wa:155] book_id: 37
+[03/Mar/2014 00:25:38] INFO [wa:103] in audio Selection
+[03/Mar/2014 00:28:40] INFO [wa:103] in audio Selection
+[03/Mar/2014 00:28:44] INFO [wa:10] Coming into try block
+[03/Mar/2014 00:29:15] INFO [wa:103] in audio Selection
+[03/Mar/2014 00:35:00] INFO [wa:103] in audio Selection
+[03/Mar/2014 00:35:04] INFO [wa:10] Coming into try block
+[03/Mar/2014 00:36:28] INFO [wa:103] in audio Selection
+[03/Mar/2014 00:38:27] INFO [wa:149] Hello world
+[03/Mar/2014 00:38:27] INFO [wa:150] In checkForCompletion
+[03/Mar/2014 00:38:27] INFO [wa:152] Coming after ndu
+[03/Mar/2014 00:38:27] INFO [wa:155] book_id: 33
+[03/Mar/2014 16:14:32] INFO [wa:103] in audio Selection
+[03/Mar/2014 16:16:06] INFO [wa:103] in audio Selection
+[03/Mar/2014 16:16:11] INFO [wa:10] Coming into try block
+[03/Mar/2014 16:16:55] INFO [wa:103] in audio Selection
+[03/Mar/2014 16:18:09] INFO [wa:149] Hello world
+[03/Mar/2014 16:18:09] INFO [wa:150] In checkForCompletion
+[03/Mar/2014 16:18:09] INFO [wa:152] Coming after ndu
+[03/Mar/2014 16:18:09] INFO [wa:155] book_id: 36
+[03/Mar/2014 16:22:48] INFO [wa:10] Coming into try block
+[03/Mar/2014 16:24:13] INFO [wa:10] Coming into try block
+[03/Mar/2014 17:09:33] INFO [wa:103] in audio Selection
+[03/Mar/2014 17:09:38] INFO [wa:10] Coming into try block
+[03/Mar/2014 17:34:33] INFO [wa:103] in audio Selection
+[03/Mar/2014 17:34:44] INFO [wa:103] in audio Selection
+[03/Mar/2014 17:34:47] INFO [wa:10] Coming into try block
+[03/Mar/2014 17:35:20] INFO [wa:103] in audio Selection
+[03/Mar/2014 17:36:44] INFO [wa:25] Coming into uploadAudioDb
+[03/Mar/2014 17:36:44] INFO [wa:149] In checkForCompletion
+[03/Mar/2014 17:36:44] INFO [wa:151] Coming after ndu
+[03/Mar/2014 17:36:44] INFO [wa:154] book_id: 36
+[03/Mar/2014 17:36:44] INFO [wa:156] chunks: 8percentageCompleteAudio: 2.0
+[03/Mar/2014 17:37:27] INFO [wa:103] in audio Selection
+[03/Mar/2014 17:37:30] INFO [wa:10] Coming into try block
+[03/Mar/2014 17:37:43] INFO [wa:103] in audio Selection
+[03/Mar/2014 17:40:43] INFO [wa:25] Coming into uploadAudioDb
+[03/Mar/2014 17:40:43] INFO [wa:149] In checkForCompletion
+[03/Mar/2014 17:40:43] INFO [wa:151] Coming after ndu
+[03/Mar/2014 17:40:43] INFO [wa:154] book_id: 36
+[03/Mar/2014 17:40:43] INFO [wa:156] chunks: 8percentageCompleteAudio: 3.0
+[03/Mar/2014 18:57:22] INFO [wa:10] Coming into try block

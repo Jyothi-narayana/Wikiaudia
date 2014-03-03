@@ -9,7 +9,9 @@ from wa.models import Language, Book, Paragraph, UserHistory, Document
 from django.core.files.storage import default_storage
 from django.core.files.storage import FileSystemStorage
 from django.core.files import File
+from django.core.files.base import ContentFile
 from wand.image import Image
+from wa.dbOps import uploadAudioDb
 #from wa.dbOps import addParagraph
 #from wa.models import Language,Book, Paragraph, UserHistory, Document
 #import wikiaudia.settings
@@ -25,13 +27,16 @@ app = Celery('tasks', broker='redis://localhost')
 #def add(x, y):
 #    return x + y
 @app.task(name='wa.tasks.soundProcessingWithAuphonicTask')
-def soundProcessingWithAuphonicTask(f):
+def soundProcessingWithAuphonicTask(f,book_id,para_id,user_id):
 	username = 'ashuven63@gmail.com'
 	password = 'ashu177'
 	preset = 'aPZCk3SVNZGPUfPGEgA76Q'
+	a = default_storage.open(f)
+	local_fs = FileSystemStorage(location='/tmp/audiofiles')
+	local_fs.save(a.name,a)
 	data = {'preset': preset, 'action': 'start', }
 	input_files = {}
-	input_files['input_file'] = open(f, 'r')
+	input_files['input_file'] = open('/tmp/audiofiles/'+f, 'r')
 	print "opened file"
 	response_upload = requests.post(API_URL, data=data, files=input_files,auth=HTTPBasicAuth(str(username), str(password)))
 	json_response = response_upload.json()
@@ -51,6 +56,17 @@ def soundProcessingWithAuphonicTask(f):
 		noOfTries=noOfTries+1
 	download_url = detail_object['data']['output_files'][0]['download_url']
 	#use this URL to download back into the server 
+	out = requests.get(download_url,auth=HTTPBasicAuth(str(username), str(password)))
+	#trialFile = open('trial.mp3','w')
+	#trialFile.write(out.content)
+	trialFile = ContentFile(out.content)
+	#Warning : hardcoded value
+	default_storage.save(str(book_id) + "/chunks/" + str(para_id) + "/AudioFiles/1.wav",trialFile)
+	uploadAudioDb(para_id, user_id)
+	default_storage.delete(f)
+	#trialFile.close()
+
+
 	print download_url		
 	return 0
 
