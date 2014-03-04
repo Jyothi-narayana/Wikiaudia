@@ -14,35 +14,45 @@ def getChunkID(userID,bookID,type):
 			chunks_assigned_to_user =  Paragraph.objects.filter(book=book_instance
 				).filter(audioAssignedTo_id=userID
 				).filter(audioReadBy_id__isnull=True)
-			if len(chunks_assigned_to_user) is not 0:
-				'''
+		else:
+			chunks_assigned_to_user = Paragraph.objects.filter(book=book_instance
+				).filter(digiAssignedTo_id=userID
+				).filter(digiBy_id__isnull=True)
+		if len(chunks_assigned_to_user) is not 0:
+			'''
 					If a chunk which is assigned to user is found
 					but is not recorded send the first available row 
 					back to the user
-				'''
-				return chunks_assigned_to_user[0].id
-			else:
-				'''
-					Assign a range to the user according to window size
-				'''
-				#assigned_till_chunk_id = 
-				#last_unread_para_id =         		     		
-				window_size = 3
-				assignWindow(window_size,bookID,userID)
+			'''
+			return chunks_assigned_to_user[0].id
+		else:
+			'''
+				Assign a range to the user according to window size
+			'''
+			#assigned_till_chunk_id = 
+			#last_unread_para_id =         		     		
+			window_size = 3
+			if type == 0:				
+				assignAudioWindow(window_size,bookID,userID)
 				chunks_assigned_to_user =  Paragraph.objects.filter(book=book_instance
 				).filter(audioAssignedTo_id=userID
 				).filter(audioReadBy_id__isnull=True)
-				return chunks_assigned_to_user[0].id
+			else:
+				assignDigitizeWindow(window_size,bookID,userID)
+				chunks_assigned_to_user =  Paragraph.objects.filter(book=book_instance
+				).filter(digiAssignedTo_id=userID
+				).filter(digiBy_id__isnull=True)
+			return chunks_assigned_to_user[0].id
 
 	except Exception as e:
 		print e.message
 		return 0
 
-def assignWindow(window_size,bookID,userID):
+def assignAudioWindow(window_size,bookID,userID):
 	book_instance = Book.objects.get(pk=bookID)
 	chunk = Paragraph.objects.filter(book=book_instance
 				).filter(audioReadBy_id__isnull=True)
-	chunk_assigned = chunk.filter(audioAssignedTo_id_isnull=True)
+	chunk_assigned = chunk.filter(audioAssignedTo_id__isnull=True)
 
 	if len(chunk_assigned)==0:
 		i=0
@@ -53,9 +63,6 @@ def assignWindow(window_size,bookID,userID):
 				c.audioAssignedTo_id = 0
 			i = i+1
 			c.save()
-
-
-
 	else:
 		i = 0
 		for c in chunk_assigned:
@@ -67,4 +74,29 @@ def assignWindow(window_size,bookID,userID):
 			else:
 				break
 
+def assignDigitizeWindow(window_size,bookID,userID):
+	book_instance = Book.objects.get(pk=bookID)
+	chunk = Paragraph.objects.filter(book=book_instance
+				).filter(digiBy_id__isnull=True)
+	chunk_assigned = chunk.filter(digiAssignedTo_id__isnull=True)
+
+	if len(chunk_assigned)==0:
+		i=0
+		for c in chunk:
+			if i<window_size:
+				c.digiAssignedTo_id =  userID
+			else:
+				c.digiAssignedTo_id = 0
+			i = i+1
+			c.save()
+	else:
+		i = 0
+		for c in chunk_assigned:
+			if i<window_size:
+				chunkId = c.id;
+				c.digiAssignedTo_id = userID;
+				c.save()
+				i=i+1
+			else:
+				break
 
