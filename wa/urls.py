@@ -3,7 +3,7 @@ from wa import views;
 
 urlpatterns = patterns('',
 	url(r'^$', views.front, name='front'),
-	
+	#url(r'^contributeOut/$', views.contributeOut, name='contributeOut'),
 	url(r'audio/bookParas/', views.bookParas, name='bookParas'),
 	url(r'audio/getParaImage/(?P<book_id>\d+)/(?P<para_id>\d+)/', views.getParaImage, name = 'getParaImage'),
 	url(r'audio/(?P<book_id>\d+)/(?P<para_id>\d+)/', views.chooseParaAction, name = 'chooseParaAction'),
@@ -13,6 +13,9 @@ urlpatterns = patterns('',
 	
 	url(r'audio/getimage/(?P<book_id>\d+)/', views.getImage, name = 'getImage'),
 	url(r'audio/(?P<book_id>\d+)/', views.chooseAction, name = 'chooseAction'),
+	url(r'^aboutUs/$', views.aboutUs, name='aboutUs'),
+	url(r'^aboutUsOut/$', views.aboutUsOut, name='aboutUsOut'),
+	
 	url(r'audio/langBooks/', views.langBooks, name='langBooks'),
 	url(r'audio/', views.audioSelection, name = 'audioSelection'),
 	url(r'getParagraph/(?P<book_id>\d+)/(?P<para_id>\d+)/', views.getParagraph, name = 'getParagraph'),
@@ -24,6 +27,7 @@ urlpatterns = patterns('',
     url(r'^audioUpload/$', views.audioUpload, name='audioUpload'),
     url(r'^audioUploadForm/(?P<book_id>\d+)/(?P<para_id>\d+)/$', views.audioUploadForm, name='audioUploadForm'),
 	url(r'^login/$', views.front, name='front'),
+
 	url(r'^auth/$', views.auth_view, name='auth_view'),
 	url(r'^home/$', views.home, name='home'),
 	url(r'^register/$', views.register_user, name='register_user'),

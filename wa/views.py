@@ -76,6 +76,17 @@ def home(request):
     else:
         return HttpResponseRedirect('/wa')
 
+def aboutUs(request):
+	return render_to_response('wa/aboutUs.html')
+
+def aboutUsOut(request):
+	return render_to_response('wa/aboutUsOut.html')
+
+'''	
+def contributeOut(request):
+	return render_to_response('wa/contributeOut.html')
+'''
+	
 def register_user(request):
     emailValue="" 	
     nameValue=""

@@ -15,7 +15,7 @@ def auConcat(book_id):
     for i in para_no:
         version_val =  i.validAudioVersionNumber + 1
         file_name = str(book_id) + "/chunks/" + str(i.id) + "/AudioFiles/"+str(version_val)+".wav"
-        if i.isChapter == 1:
+        if ((i.isChapter == 1)|(offset==1)):
             infiles_list = []
         infiles_list.append(file_name)
         if(offset<=len(para_no)-1):
@@ -43,6 +43,7 @@ def audioConcatenation(book_id):
             local_fs.save(a.name,a)
     for i in all_files_list:  
         data= []
+        temp1=0
         outfile='/tmp/audioFiles/'+str(book_id)+'/'+str(count)+'.wav'
         #with wave.open(outfile, 'wb') as output:        
             # each chapter ka chunk
@@ -51,15 +52,18 @@ def audioConcatenation(book_id):
             w = wave.open(temp, 'rb')
             data.append( [w.getparams(), w.readframes(w.getnframes())] )
             w.close()
+            temp1=temp1+1			 
         log.info("Count:  "+str(count))  
         output= wave.open(outfile, 'wb')  
         output.setparams(data[0][0])
-        output.writeframes(data[0][1])
+        for k in range(0,temp1):
+            output.writeframes(data[k][1])
+        #output.writeframes(data[0][1])
         #output.writeframes(data[1][1])
         output.close()          
         f = open(outfile, 'rb')
         myfile = File(f)
-        new_name =str(book_id) + "/AudioChapters/Chapter"+str(count)+".pdf"
+        new_name =str(book_id) + "/AudioChapters/Chapter"+str(count)+".wav"
         default_storage.save(new_name,myfile)
         #os.remove(outfile)
         count=count+1
