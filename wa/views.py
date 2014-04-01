@@ -628,3 +628,6 @@ def browseAudiobooks(request,book_id):
         return render(request, 'wa/browseAudio.html', context)
     else:
         return HttpResponseRedirect('/wa')
+
+def tutorial(request):
+    return render(request, 'wa/tutorial.html')

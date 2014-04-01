@@ -15,6 +15,7 @@ urlpatterns = patterns('',
 	url(r'audio/(?P<book_id>\d+)/', views.chooseAction, name = 'chooseAction'),
 	url(r'^aboutUs/$', views.aboutUs, name='aboutUs'),
 	url(r'^aboutUsOut/$', views.aboutUsOut, name='aboutUsOut'),
+	url(r'^tutorial/$', views.tutorial, name = 'tutorial'),
 	
 	url(r'audio/langBooks/', views.langBooks, name='langBooks'),
 	url(r'audio/', views.audioSelection, name = 'audioSelection'),
