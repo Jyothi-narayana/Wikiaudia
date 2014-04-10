@@ -590,7 +590,8 @@ def uploadDigi(request, book_id, para_id):
         user_id = request.user.id
         uploadDigiDb(para_id, user_id)
         x = request.POST['unicode_data']
-        return HttpResponse(x)
+        #return HttpResponse(x)
+        return HttpResponseRedirect('/wa/myprofile/')
     
 def ajax(request):
     if request.POST.has_key('client_response'):
