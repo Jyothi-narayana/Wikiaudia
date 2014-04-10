@@ -101,14 +101,16 @@ def long_slice(image_path, out_name, outdir, slice_list,book_id):
         
 def Split_to_para(image_path,book_id):
     noChunks=0
-  
+    print("eeeeeeeeeeeeeeeeeeeeeeeeeeeeee") 
     img = cv2.imread(image_path)
+    print("1")  
     cnt = 0
     height, width, depth = img.shape;
+    print("2")  
     gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
     edges = cv2.Canny(gray,50,150,apertureSize = 3)
     lines = cv2.HoughLinesP(edges,1,np.pi/180,40,minLineLength = width/32, maxLineGap = 1000)
-
+    print("3")
     mined_list=[]
     line_length=[]
     start_point=[] #x1's
@@ -122,7 +124,7 @@ def Split_to_para(image_path,book_id):
             line_length.append((x2-x1))
             start_point.append(x1)
             end_point.append(x2)
-                  
+    print("4")                  
     mined_list.sort(key=lambda tup: tup[0])
     mode_line_length= most_common(line_length)
     mode_start_point= most_common(start_point)
@@ -137,26 +139,27 @@ def Split_to_para(image_path,book_id):
                 possible_cutline.append(i)
 
     possible_cutline.sort(key=lambda tup: tup[0])
-   
+    print("5")   
     if (len(possible_cutline) >0 ):
         final_cutline=[possible_cutline[len(possible_cutline)-1][0]]
+        print("6")  
         i=0
         support_list=[]
+        print("7")  
         while i <= len(possible_cutline)-2 :
             support_list.append(possible_cutline[i+1][0]-possible_cutline[i][0])
             i=i+1
- 
+        print("8") 
         i=0
         while i <= len(support_list)-1:
             if( (i<len(possible_cutline)) & (support_list[i] > 50)) :
-               final_cutline.append(possible_cutline[i][0])
+                final_cutline.append(possible_cutline[i][0])
             i=i+1
-        
+    
         temp=height-(height/10)
         for i in final_cutline:
-            if i>=temp:
+           if i>=temp:
                 final_cutline.remove(i)
-
         final_cutline[:] = [x + 8 for x in final_cutline]
 
         final_cutline.sort()
@@ -166,17 +169,35 @@ def Split_to_para(image_path,book_id):
             if((final_cutline[i+1]-final_cutline[i]) <= temp):
                 final_cutline.pop(i+1)
             i=i+1
-        temp=len(final_cutline)
-        noChunks=temp+1     
-        print("no_chunks form split+para")
-        print(noChunks)     
-        if temp != 1:
-            long_slice(image_path,"slices", os.getcwd(), final_cutline,book_id)
+        print("Final Cutline")      
+        print(final_cutline)
+        print(len(final_cutline))   
+        if ((len(final_cutline))>0):
+            temp=len(final_cutline)
+            noChunks=temp+1     
+            print("no_chunks form split+para")
+            print(noChunks)     
+            if temp != 1:
+                long_slice(image_path,"slices", os.getcwd(), final_cutline,book_id)
+            else:
+                halve_page(image_path,"slices", os.getcwd(), final_cutline[0],book_id)
         else:
-            halve_page(image_path,"slices", os.getcwd(), final_cutline[0],book_id)
+            noChunks=1  
+            with open(str(image_path), 'rb') as f:
+                myfile = File(f)
+                img = Image2.open(f)
+                outdir=os.getcwd()          
+                img.save(os.path.join(outdir,"1.png"))  
+                with open("1.png", 'rb') as f1:
+                    myfile1=File(f1)            
+                    para = Paragraph(book = Book.objects.get(pk = book_id), status = 're')
+                    para.save()
+                    path_to_save = str(book_id) + "/chunks/" + str(para.id) + "/image.png"                      
+                    print "para ID: " + str(para.id)
+                    default_storage.save(path_to_save, myfile1) 
     else:
         noChunks=1  
-        with open(str(image_path), 'rb') as f:
+        with open(str(image_path), 'rb') as f :
             myfile = File(f)
             img = Image2.open(f)
             outdir=os.getcwd()          
@@ -187,7 +208,8 @@ def Split_to_para(image_path,book_id):
                 para.save()
                 path_to_save = str(book_id) + "/chunks/" + str(para.id) + "/image.png"                      
                 print "para ID: " + str(para.id)
-                default_storage.save(path_to_save, myfile1)         
+                default_storage.save(path_to_save, myfile1)     
+        
     return noChunks         
     
 def splitBookIntoPages(f_arg, book_id):

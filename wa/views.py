@@ -25,7 +25,7 @@ from django.core.files.storage import default_storage
 from django.core.files.storage import FileSystemStorage
 from django.core.files import File
 from wa.paragraphChunks import getChunkID
-from wa.dbOps import uploadDigiDb, uploadAudioDb
+from wa.dbOps import uploadDigiDb, uploadAudioDb, validatedAudioDb
 from django.db.models import F
 import wave
 import BeautifulSoup
@@ -320,20 +320,26 @@ def getAudio(request, book_id, para_id):
     #return HttpResponse("hello")
     return HttpResponse(file, mimetype="audio/wav") 
 def upVoted(request, book_id, para_id):
-	paraToUpVote=Paragraph.objects.get(pk=para_id)
-	print paraToUpVote
+	#paraToUpVote=Paragraph.objects.get(pk=para_id)
+	#print paraToUpVote
 	#paraToUpVote.update(upVotes=1)
 	#paraToUpVote.upVotes=paraToUpVote.upVotes+1
-	paraToUpVote.upVotes = F('upVotes') + 1
-	paraToUpVote.save()
-	return HttpResponseRedirect('/wa')
+	#paraToUpVote.upVotes = F('upVotes') + 1
+	#paraToUpVote.save()
+	#return HttpResponseRedirect('/wa')
+        user_id = request.user.id
+        validatedAudioDb(para_id, user_id, "upVote")
+    	return HttpResponseRedirect(reverse('wa.views.valSelection'))
 	
 def downVoted(request, book_id, para_id):
-	paraToDownVote=Paragraph.objects.get(pk=para_id)
+	#paraToDownVote=Paragraph.objects.get(pk=para_id)
 	#paraToUpVote.update()
-	paraToDownVote.downVotes = F('downVotes') + 1
-	paraToDownVote.save()
-	return HttpResponseRedirect('/wa')
+	#paraToDownVote.downVotes = F('downVotes') + 1
+	#paraToDownVote.save()
+	#return HttpResponseRedirect('/wa')
+        user_id = request.user.id
+        validatedAudioDb(para_id, user_id, "downVote")
+    	return HttpResponseRedirect(reverse('wa.views.valSelection'))
 	
 def bookParas(request):
     print("Into bookParas")
@@ -352,7 +358,7 @@ def bookParas(request):
     
     
     #bookParagraphs = book.paragraph_set.all()[:10]
-    bookParagraphs = Paragraph.objects.filter(book__id=bookTemp).filter(status='va')[:5]
+    bookParagraphs = Paragraph.objects.filter(book__id=bookTemp).filter(status='re')[:100]
 	
     #bookParagraphs = book.paragraph_set.filter(status_id='re')[:4]
     #bookParagraphs = book.paragraph_set.all.filter(status='re')[:5]
@@ -485,6 +491,8 @@ def langBooks(request):
         languageBooks = languageBooks.exclude(percentageCompleteAudio = F('numberOfChunks'))
     elif(request.session['action'] == "browse"):
         languageBooks = languageBooks.exclude(numberOfChunks = 0).filter(percentageCompleteAudio = F('numberOfChunks'))
+    elif(request.session['action'] == "validate"):
+        languageBooks = languageBooks.exclude(numberOfChunks = 0)
     ret = serializers.serialize("json", languageBooks)
     #resp = HttpResponse(content_type = "application/json");
     #json.dump(languageBooks, resp)
@@ -590,7 +598,9 @@ def uploadDigi(request, book_id, para_id):
         user_id = request.user.id
         uploadDigiDb(para_id, user_id)
         x = request.POST['unicode_data']
-        return HttpResponse(x)
+        #return HttpResponse(x)
+        #return HttpResponse("/wa/myprofile")
+        return HttpResponseRedirect(reverse('wa.views.myprofile'))
     
 def ajax(request):
     if request.POST.has_key('client_response'):

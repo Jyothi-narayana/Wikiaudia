@@ -87,6 +87,13 @@ function addBooksToPage(data,lang,hreftype)
 	var json = JSON.parse(data);
 	//alert(json[0].fields.lang);
 	//alert(dispDiv);
+	//alert("length"+ json.length);
+	if(json.length == 0)
+	{
+		pElem = document.createElement('p');
+		pElem.innerHTML = "No books for this language yet";
+		dispDiv.appendChild(pElem);
+	}
 	for(i =0, len = json.length; i < len; ++i)
 	{
 		//alert(json[i].pk);

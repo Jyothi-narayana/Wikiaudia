@@ -70,12 +70,14 @@ def audioConcatenation(book_id):
         new_name =str(book_id) + "/AudioChapters/Chapter"+str(count)+".wav"
         log.info("new_name: "+ new_name)
         default_storage.save(new_name,myfile)
-        os.remove(outfile)
+        #os.remove(outfile)
         count=count+1
     log.info("done")
-    '''     
+    '''
     for i in all_files_list:        
         for j in i:
             temp='/tmp/audioFiles/'+j
             os.remove(temp)
+    path='/tmp/audioFiles/'+str(book_id)+'/'
+    os.remove(path)
     '''

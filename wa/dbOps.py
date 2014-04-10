@@ -1,6 +1,7 @@
 from wa.models import Language, Book, Paragraph, UserHistory, Document, CustomUser
 import logging
 from utilities import pointsToAward
+from django.db.models import F
 
 def uploadDigiDb(para_id, user_id):
 	'''
@@ -51,4 +52,22 @@ def uploadAudioDb(para_id, user_id):
 
 	user = CustomUser.objects.get(pk = user_id)
 	user.points = user.points + pointsToAward("re")
+	user.save()
+
+def validatedAudioDb(para_id, user_id, typeOfVote):
+	#increment the count for para
+	#put in user history
+	para = Paragraph.objects.get(pk=para_id)
+	if(typeOfVote == "upVote"):
+		para.upVotes = F('upVotes') + 1
+		uh = UserHistory(user = CustomUser.objects.get(pk = user_id), action = 'va', paragraph = para, vote = 'up')
+	elif(typeOfVote == "downVote"):
+		para.downVotes = F('downVotes') + 1
+		uh = UserHistory(user = CustomUser.objects.get(pk = user_id), action = 'va', paragraph = para, vote = 'do')
+	para.save()
+	uh.save()
+	
+	#increment points
+	user = CustomUser.objects.get(pk = user_id)
+	user.points = user.points + pointsToAward("va")
 	user.save()

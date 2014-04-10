@@ -10,11 +10,11 @@
 
 function upVote()
 {
-	$.get('/wa/upVoted/{{ book_id }}/{{ para_id }}/');
+	$.get('/wa/upVoted/{{ book_id }}/{{ para_id }}/', function () { window.location.href = "http://localhost:1234/wa/valSelection"; });
 }
 function downVote()
 {
-	$.get('/wa/downVoted/{{ book_id }}/{{ para_id }}/');
+	$.get('/wa/downVoted/{{ book_id }}/{{ para_id }}/', function () { window.location.href = "http://localhost:1234/wa/valSelection"; });
 }
 </script>
 

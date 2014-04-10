@@ -355,10 +355,16 @@ jQuery(document).ready(function(){
 							dataType : "json",
 							success: function( data ){
 								console.log("Hello:" +data);
+								window.location.href = "http://localhost:1234/wa/myprofile/";
 							},
 
 							error : function(xhr,errmsg,err) {
-							alert(xhr.status + ": " + xhr.responseText);
+								//window.location.replace = "http://google.com";
+								//window.location.href = "http://stackoverflow.com";
+								window.location.href = "http://localhost:1234/wa/myprofile/";
+								//alert(xhr.status + ": " + xhr.responseText);
+								console.log("In error");
+
 							}
 							
 						});

@@ -32,6 +32,8 @@ def soundProcessingWithAuphonicTask(f,book_id,para_id,user_id):
 	username = 'ashuven63@gmail.com'
 	password = 'ashu177'
 	preset = 'aPZCk3SVNZGPUfPGEgA76Q'
+	log = logging.getLogger("wa")
+	log.info("soundProcessingWithAuphonicTask")
 	a = default_storage.open(f)
 	local_fs = FileSystemStorage(location='/tmp/audiofiles')
 	local_fs.save(a.name,a)
@@ -50,6 +52,7 @@ def soundProcessingWithAuphonicTask(f,book_id,para_id,user_id):
 		detail_response_upload = requests.get(detail_url,headers=headers,auth=HTTPBasicAuth(str(username), str(password)))
 		detail_object = detail_response_upload.json()
 		print detail_object['data']['status_string']
+		log.info("soundProcessingWithAuphonicTask " + detail_object['data']['status_string'])
 		if detail_object['data']['status_string']=='Done':
 			getDetails=False
 			continue
@@ -69,6 +72,7 @@ def soundProcessingWithAuphonicTask(f,book_id,para_id,user_id):
 
 
 	print download_url		
+	log.info("soundProcessingWithAuphonicTask " + download_url)
 	return 0
 
 @app.task(name='wa.tasks.uploadSplitBookIntoGridFS')

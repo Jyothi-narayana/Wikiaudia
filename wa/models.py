@@ -144,6 +144,7 @@ class Book(models.Model):
     numberOfChunks = models.PositiveIntegerField(default = 0)
     shouldConcatAudio = models.BooleanField(default = False)
     shouldConcatDigi = models.BooleanField(default = False)
+    status = models.CharField(max_length = 3, choices = (('rec', 'Recording'), ('val', 'Validating'), ('rer', 'ReRecording'), ('don', 'Done')))
     def __unicode__(self):
         return self.author + ',' + self.bookName + ',' + self.lang.langName
 
@@ -160,7 +161,7 @@ class Paragraph(models.Model):
     validAudioVersionNumber = models.PositiveIntegerField(default = 0)
     upVotes = models.PositiveIntegerField(default = 0)
     downVotes = models.PositiveIntegerField(default = 0)
-    status = models.CharField(max_length = 2, choices = (('re', 'Recording'),('va', 'Validating'),('do', 'Done')))
+    status = models.CharField(max_length = 2, choices = (('re', 'Recording'),('va', 'Validating'),('do', 'Done'),('co', 'Correct'), ('in', 'incorrect')))
     
 def concat(book_id):
     para_no = Paragraph.objects.filter(book=Book.objects.get(pk=book_id))
@@ -203,6 +204,7 @@ def digiConcatenation(book_id):
     #Lang=Language.objects.get(id=(Book.objects.get(pk = book_id)).lang).langName
     for i in all_files_list:
         for j in i:
+            print(j)
             a = default_storage.open(j)
             path_to_save='/tmp/digiFiles/'
             local_fs = FileSystemStorage(location=path_to_save)
@@ -242,12 +244,17 @@ def digiConcatenation(book_id):
         #fout.write('\f')   
     #path='/tmp/digiFiles/'
     #os.remove(path)
-    '''
+    
     for i in all_files_list:        
         for j in i:
-            temp='/tmp/digiFiles/'
+            temp='/tmp/digiFiles/'+j
             os.remove(temp)
-    '''
+
+    path='/tmp/digiFiles/'+str(book_id)+'/'
+    os.remove(path)
+
+
+    
 #@receiver(pre_save, sender=Book)
 #check for completion pre_save of Paragraph
 def checkForCompletion(sender, **kwargs): 
@@ -267,7 +274,7 @@ def checkForCompletion(sender, **kwargs):
         print("Going to call audio concat")
         #audioConcatenation(book.id) 
         #A high value for countdown is needed
-        concatAudio.apply_async(args = [book.id], countdown = 360)
+        concatAudio.apply_async(args = [book.id], countdown = 60)
         book.shouldConcatAudio = False
         book.save()
         print("Calling Audio concat")

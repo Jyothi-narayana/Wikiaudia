@@ -6,7 +6,38 @@
 <script src="http://cwilso.github.io/AudioContext-MonkeyPatch/AudioContextMonkeyPatch.js"></script>
 <script src="/static/wa/js/recorderjs/recorder.js"></script>
 <script src="/static/wa/js/index.js"></script>
-<script src="{% static "wa/js/jquery.js" %}"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+<script src="http://malsup.github.com/jquery.form.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+    var bar = $('.bar');
+    var status = $('#status');
+
+    $('#audioUploadForm').ajaxForm({
+        beforeSend: function() {
+            status.empty();
+            var percentVal = '0';
+            console.log(percentVal);
+            //bar.height(10);
+            $('#progressbar').width(0);
+            $('#progressbar').css('background-color', '#FF4500');
+        },
+        uploadProgress: function(event, position, total, percentComplete) {
+            var percentVal = percentComplete;
+            console.log(percentVal);
+            $('#progressbar').width(percentVal+"%");
+            //console.log(percentVal+'%');
+        },
+        complete: function(xhr) {
+            ///alert(html(xhr.responseText));
+            //window.location.href=("http://54.213.4.161/wa/audio/");
+            console.log("Done");
+        }
+    });
+}); 
+</script>
+
 
 
 		<!-- Upload form. Note enctype attribute! -->
@@ -17,11 +48,11 @@
 		<img src = "/wa/getParagraph/{{ book_id }}/{{ para_id }}/" style="border:2px solid black">
 		<br/><br/><br/>
 		<div>
-            <a onclick ="toggleRecording(this)" href="#" class="btn btn-round"><span>Record Audio</span></a>
-            <a onclick="saveAudio()" href="#" class="btn btn-round"><span>Save Audio</span></a>
+            <a onclick ="toggleRecording(this)" href="#"  ><span id= "textInToggle">Record Audio<!--<img id = "imgInToggle" width = "20" height = "20" src = "{% static "wa/img/red-circle.png"%}"/>--></span></a>
+            <a id = "saveAudio" href="#" class="btn btn-round"><span>Save Audio</span></a>
         </div>
         <br/><br/><br/>
-		<form action="/wa/audioUploadForm/{{ book_id }}/{{ para_id }}/" method="post" enctype="multipart/form-data">
+		<form action="/wa/audioUploadForm/{{ book_id }}/{{ para_id }}/" method="post" enctype="multipart/form-data" id="audioUploadForm">
 			<label for="chapterrad">Chunk a chapter beginning?</label><br/><br/>
 			<input type="radio" name="chapterrad" id = "chapterrady" value="yes">Yes</input>
 			<input type="radio" name="chapterrad" id = "chapterradn" value="no" checked>No</input>
@@ -35,7 +66,11 @@
 				{{ form.docfile.errors }}
 				{{ form.docfile }}
 			</p>
-			
+			<div class="progress" >
+                <div class="bar" style="height:10px;" id="progressbar"></div >
+            </div>
+            <div id="status"></div>
+                                
 			
 			<div class="rowSubmit"><span class="btn btn-red"><p><input type="submit" value="Upload" /></p></span></div>
 		</form>
