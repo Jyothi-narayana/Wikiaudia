@@ -257,13 +257,14 @@ def audioUpload(request, book_id):
             form = DocumentForm() # A empty, unbound form
 
         # Load documents for the list page
-        documents = Document.objects.all()
-        para_id = getChunkID(request.user.id, book_id, 0)
+        #documents = Document.objects.all()
+        #para_id = getChunkID(request.user.id, book_id, 0)
+        para_id=1
         # Render list page with the documents and the form
         if(para_id != 0):
             return render_to_response(
                 'wa/audioUpload.html',
-                {'documents': documents, 'form': form, 'book_id': book_id, 'para_id': para_id },
+                {'book_id': 1, 'para_id': 1 },
                 context_instance=RequestContext(request)
             )
         else:

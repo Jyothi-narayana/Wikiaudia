@@ -10,3 +10,82 @@
 [31/Mar/2014 11:19:20] INFO [wa:593] [<Language: English>, <Language: Kannada>, <Language: Tamil>, <Language: Telgu>, <Language: Hindi>, <Language: Bengali>]
 [31/Mar/2014 11:19:38] INFO [wa:590] In browse
 [31/Mar/2014 11:19:38] INFO [wa:593] [<Language: English>, <Language: Kannada>, <Language: Tamil>, <Language: Telgu>, <Language: Hindi>, <Language: Bengali>]
+[31/Mar/2014 13:59:34] INFO [wa:590] In browse
+[31/Mar/2014 13:59:34] INFO [wa:593] [<Language: English>, <Language: Kannada>, <Language: Tamil>, <Language: Telgu>, <Language: Hindi>, <Language: Bengali>]
+[31/Mar/2014 14:34:13] INFO [wa:140] in audio Selection
+[31/Mar/2014 14:34:14] INFO [wa:140] in audio Selection
+[31/Mar/2014 14:36:48] INFO [wa:140] in audio Selection
+[31/Mar/2014 14:36:48] INFO [wa:140] in audio Selection
+[31/Mar/2014 14:36:49] INFO [wa:10] Coming into try block
+[31/Mar/2014 14:37:01] INFO [wa:140] in audio Selection
+[31/Mar/2014 14:37:25] INFO [wa:140] in audio Selection
+[31/Mar/2014 14:37:25] INFO [wa:140] in audio Selection
+[31/Mar/2014 14:43:40] INFO [wa:140] in audio Selection
+[31/Mar/2014 14:43:46] INFO [wa:140] in audio Selection
+[31/Mar/2014 14:43:53] INFO [wa:10] Coming into try block
+[31/Mar/2014 14:43:57] INFO [wa:140] in audio Selection
+[31/Mar/2014 14:43:57] INFO [wa:140] in audio Selection
+[31/Mar/2014 14:44:22] INFO [wa:10] Coming into try block
+[31/Mar/2014 14:44:26] INFO [wa:140] in audio Selection
+[31/Mar/2014 14:44:26] INFO [wa:140] in audio Selection
+[31/Mar/2014 14:46:53] INFO [wa:488] Upload Book :
+[31/Mar/2014 14:46:53] INFO [wa:489] English
+[31/Mar/2014 14:46:53] INFO [wa:247] In checkForCompletion
+[31/Mar/2014 14:46:53] INFO [wa:249] Coming after ndu
+[31/Mar/2014 14:46:53] INFO [wa:252] book_id: 2
+[31/Mar/2014 14:46:53] INFO [wa:254] chunks: 0percentageCompleteAudio: 0
+[31/Mar/2014 14:46:53] INFO [wa:509] documents/2
+[31/Mar/2014 14:47:45] INFO [wa:488] Upload Book :
+[31/Mar/2014 14:47:45] INFO [wa:489] English
+[31/Mar/2014 14:47:46] INFO [wa:247] In checkForCompletion
+[31/Mar/2014 14:47:46] INFO [wa:249] Coming after ndu
+[31/Mar/2014 14:47:46] INFO [wa:252] book_id: 3
+[31/Mar/2014 14:47:46] INFO [wa:254] chunks: 0percentageCompleteAudio: 0
+[31/Mar/2014 14:47:47] INFO [wa:509] documents/3
+[31/Mar/2014 14:47:47] INFO [wa:140] in audio Selection
+[31/Mar/2014 14:47:48] INFO [wa:140] in audio Selection
+[31/Mar/2014 14:48:23] INFO [wa:488] Upload Book :
+[31/Mar/2014 14:48:23] INFO [wa:489] English
+[31/Mar/2014 14:48:23] INFO [wa:247] In checkForCompletion
+[31/Mar/2014 14:48:23] INFO [wa:249] Coming after ndu
+[31/Mar/2014 14:48:23] INFO [wa:252] book_id: 4
+[31/Mar/2014 14:48:23] INFO [wa:254] chunks: 0percentageCompleteAudio: 0
+[31/Mar/2014 14:48:23] INFO [wa:509] documents/4
+[31/Mar/2014 14:48:24] INFO [wa:140] in audio Selection
+[31/Mar/2014 14:48:24] INFO [wa:140] in audio Selection
+[31/Mar/2014 14:59:39] INFO [wa:488] Upload Book :
+[31/Mar/2014 14:59:39] INFO [wa:489] default
+[31/Mar/2014 15:00:01] INFO [wa:488] Upload Book :
+[31/Mar/2014 15:00:01] INFO [wa:489] English
+[31/Mar/2014 15:00:02] INFO [wa:247] In checkForCompletion
+[31/Mar/2014 15:00:02] INFO [wa:249] Coming after ndu
+[31/Mar/2014 15:00:02] INFO [wa:252] book_id: 5
+[31/Mar/2014 15:00:02] INFO [wa:254] chunks: 0percentageCompleteAudio: 0
+[31/Mar/2014 15:00:03] INFO [wa:509] documents/5
+[31/Mar/2014 15:01:17] INFO [wa:488] Upload Book :
+[31/Mar/2014 15:01:17] INFO [wa:489] default
+[31/Mar/2014 15:01:38] INFO [wa:488] Upload Book :
+[31/Mar/2014 15:01:38] INFO [wa:489] Kannada
+[31/Mar/2014 15:01:38] INFO [wa:247] In checkForCompletion
+[31/Mar/2014 15:01:38] INFO [wa:249] Coming after ndu
+[31/Mar/2014 15:01:38] INFO [wa:252] book_id: 6
+[31/Mar/2014 15:01:38] INFO [wa:254] chunks: 0percentageCompleteAudio: 0
+[31/Mar/2014 15:01:39] INFO [wa:509] documents/6
+[31/Mar/2014 15:01:39] INFO [wa:140] in audio Selection
+[31/Mar/2014 15:01:39] INFO [wa:140] in audio Selection
+[31/Mar/2014 18:28:55] INFO [wa:10] Coming into try block
+[02/Apr/2014 07:32:27] INFO [wa:140] in audio Selection
+[02/Apr/2014 07:32:27] INFO [wa:140] in audio Selection
+[02/Apr/2014 07:32:29] INFO [wa:10] Coming into try block
+[02/Apr/2014 09:14:39] INFO [wa:140] in audio Selection
+[02/Apr/2014 09:14:39] INFO [wa:140] in audio Selection
+[02/Apr/2014 09:15:10] INFO [wa:140] in audio Selection
+[02/Apr/2014 09:15:11] INFO [wa:140] in audio Selection
+[02/Apr/2014 09:15:14] INFO [wa:10] Coming into try block
+[02/Apr/2014 09:17:41] INFO [wa:10] Coming into try block
+[02/Apr/2014 09:25:21] INFO [wa:140] in audio Selection
+[02/Apr/2014 09:25:21] INFO [wa:140] in audio Selection
+[02/Apr/2014 09:25:25] INFO [wa:10] Coming into try block
+[02/Apr/2014 09:27:03] INFO [wa:140] in audio Selection
+[02/Apr/2014 09:27:03] INFO [wa:140] in audio Selection
+[02/Apr/2014 09:35:21] INFO [wa:140] in audio Selection

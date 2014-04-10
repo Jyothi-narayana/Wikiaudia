@@ -31,7 +31,7 @@ function getCookie(name) {
 }
 
 function saveAudio() {
-    audioRecorder.exportWAV( doneEncoding );
+    //audioRecorder.exportWAV( doneEncoding );
     //return urlLink;
     // could get mono instead by saying
     // audioRecorder.exportMonoWAV( doneEncoding );
@@ -44,6 +44,7 @@ function saveAudio() {
 }*/
 
 function doneEncoding( blob ) {
+    console.log("Done encoding");
     fileName  = "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav";
     Recorder.forceDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
     urlLink = Recorder.getRecordedFileURL(blob);
@@ -56,7 +57,8 @@ function toggleRecording( e ) {
         // stop recording
         audioRecorder.stop();
         e.classList.remove("recording");
-        audioRecorder.getBuffers( drawWave );
+        //audioRecorder.getBuffers( drawWave );
+    audioRecorder.exportWAV( doneEncoding );
     } else {
         // start recording
         if (!audioRecorder)
@@ -169,6 +171,7 @@ function initAudio() {
             alert('Error getting audio');
             console.log(e);
         });
+    console.log(navigator.getUserMedia);
 }
 
 window.addEventListener('load', initAudio );

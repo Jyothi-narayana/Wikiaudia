@@ -110,13 +110,23 @@ DEALINGS IN THE SOFTWARE.
   };
 
   Recorder.forceDownload = function(blob, filename){
-    var url = (window.URL || window.webkitURL).createObjectURL(blob);
+  console.log(window.URL);
+  console.log(window.webkitURL);
+    var url = (window.URL || window.webkitURL ).createObjectURL(blob);
+  console.log(url);
+  
     var link = window.document.createElement('a');
+    //document.appendChild(link);
+  mylink = document.getElementById("saveAudio");
+  console.log("MyLInk: "+mylink);
+  mylink.href = url;
+  //mylink.download = "HelloWorld.wav";
+  console.log(typeof(blob));
     link.href = url;
     link.download = filename || 'output.wav';
     var click = document.createEvent("Event");
     click.initEvent("click", true, true);
-    link.dispatchEvent(click);
+    //link.dispatchEvent(click);
   }
   Recorder.getRecordedFileURL = function(blob, filename){
     var url = (window.URL || window.webkitURL).createObjectURL(blob);

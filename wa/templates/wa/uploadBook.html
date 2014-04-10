@@ -3,6 +3,11 @@
 {% block content %}
 
 {% load staticfiles %}
+
+
+<script type="text/javascript">
+Ladda.bind( 'input[type=submit]' );
+</script>
 <div class="col-sm-7 col-sm-offset-1">
     <div class="row">
         <!--<div class="col-sm-5">-->
@@ -41,14 +46,39 @@
                                     {{ form.docfile.errors }}
                                     {{ form.docfile }}
                                 </p>
-                                <div class="rowSubmit">
+                                <!--<div class="rowSubmit">
                                 <span class="btn btn-red">
                                 <p><input type="submit" value="Upload Book" /></p>
-                                </span></div>
+                                </span></div>-->
+                                <!--<p>
+                <input type="submit" class="ladda-button" data-style="expand-right"><span class="ladda-label">Submit</span></input></p>
+                                <p><button class="ladda-button" data-style="expand-right"><span class="ladda-label">Submit</span></button></p>-->
+                                <button class="ladda-button" data-color="mint" data-style="expand-right" data-size="xl">Submit</button> 
                         </div>
                     </form>
                 </div>
             </div>
     </div>
 </div>
+<script src="/static/wa/js/spin.min.js"></script>
+<script src="/static/wa/js/ladda.min.js"></script>
+<script type="text/javascript">
+  
+Ladda.bind( 'button', {
+   callback: function( instance ) {
+      var progress = 0;
+      var interval = setInterval( function() {
+         progress = Math.min( progress + Math.random() * 0.1, 1 );
+         instance.setProgress( progress );
+ 
+         if( progress === 1 ) {
+            instance.stop();
+            clearInterval( interval );
+         }
+      }, 200 );
+   }
+});
+</script>
+
+</script>
 {% endblock %}
