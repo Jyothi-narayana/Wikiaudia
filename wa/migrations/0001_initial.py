@@ -21,7 +21,7 @@ class Migration(SchemaMigration):
             ('is_active', self.gf('django.db.models.fields.BooleanField')(default=True)),
             ('date_joined', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime.now)),
             ('languages_known', self.gf('django.db.models.fields.CharField')(max_length=50)),
-            ('phoneNo', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
+            ('phoneNo', self.gf('django.db.models.fields.BigIntegerField')(max_length=15)),
             ('loginTimes', self.gf('django.db.models.fields.IntegerField')(default=0)),
             ('points', self.gf('django.db.models.fields.IntegerField')(default=0)),
         ))
@@ -64,6 +64,8 @@ class Migration(SchemaMigration):
             ('dBookDownloads', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
             ('aBookDownloads', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
             ('numberOfChunks', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
+            ('shouldConcatAudio', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('shouldConcatDigi', self.gf('django.db.models.fields.BooleanField')(default=False)),
         ))
         db.send_create_signal(u'wa', ['Book'])
 
@@ -90,11 +92,12 @@ class Migration(SchemaMigration):
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['wa.CustomUser'])),
             ('loginTime', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('logoutTime', self.gf('django.db.models.fields.DateTimeField')()),
+            ('logoutTime', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2014, 3, 31, 0, 0))),
             ('action', self.gf('django.db.models.fields.CharField')(max_length=2)),
-            ('paragraph', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['wa.Paragraph'])),
-            ('vote', self.gf('django.db.models.fields.CharField')(default=None, max_length=2)),
+            ('paragraph', self.gf('django.db.models.fields.related.ForeignKey')(default=None, to=orm['wa.Paragraph'], null=True, blank=True)),
+            ('vote', self.gf('django.db.models.fields.CharField')(default=None, max_length=2, null=True, blank=True)),
             ('audioVersion', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
+            ('uploadedBook', self.gf('django.db.models.fields.related.ForeignKey')(default=None, to=orm['wa.Book'], null=True, blank=True)),
         ))
         db.send_create_signal(u'wa', ['UserHistory'])
 
@@ -164,7 +167,9 @@ class Migration(SchemaMigration):
             'numberOfChunks': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'}),
             'percentageAudioInvalid': ('django.db.models.fields.FloatField', [], {'default': '0'}),
             'percentageCompleteAudio': ('django.db.models.fields.FloatField', [], {'default': '0'}),
-            'percentageCompleteDigi': ('django.db.models.fields.FloatField', [], {'default': '0'})
+            'percentageCompleteDigi': ('django.db.models.fields.FloatField', [], {'default': '0'}),
+            'shouldConcatAudio': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'shouldConcatDigi': ('django.db.models.fields.BooleanField', [], {'default': 'False'})
         },
         u'wa.customuser': {
             'Meta': {'object_name': 'CustomUser'},
@@ -181,7 +186,7 @@ class Migration(SchemaMigration):
             'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
             'loginTimes': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
             'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
-            'phoneNo': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'}),
+            'phoneNo': ('django.db.models.fields.BigIntegerField', [], {'max_length': '15'}),
             'points': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
             'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'})
         },
@@ -217,10 +222,11 @@ class Migration(SchemaMigration):
             'audioVersion': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'loginTime': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'logoutTime': ('django.db.models.fields.DateTimeField', [], {}),
-            'paragraph': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['wa.Paragraph']"}),
+            'logoutTime': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2014, 3, 31, 0, 0)'}),
+            'paragraph': ('django.db.models.fields.related.ForeignKey', [], {'default': 'None', 'to': u"orm['wa.Paragraph']", 'null': 'True', 'blank': 'True'}),
+            'uploadedBook': ('django.db.models.fields.related.ForeignKey', [], {'default': 'None', 'to': u"orm['wa.Book']", 'null': 'True', 'blank': 'True'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['wa.CustomUser']"}),
-            'vote': ('django.db.models.fields.CharField', [], {'default': 'None', 'max_length': '2'})
+            'vote': ('django.db.models.fields.CharField', [], {'default': 'None', 'max_length': '2', 'null': 'True', 'blank': 'True'})
         }
     }
 

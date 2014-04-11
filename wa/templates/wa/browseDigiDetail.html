@@ -7,14 +7,13 @@
 		<img src="#"></img>
 		<p>{{ bookName }}</p>
 	</div>
+	
 	<div class="row">
+		<div><h3>Audiobook</h3></div>
 		{% for chap in noChapters %}
 			<p>
-				<!--Put the audio link-->
-				<a href="/{{book_id}}/AudioChapters/Chapter{{chap}}.wav">Chapter {{chap}} </a>
+				<a href="/{{book_id}}/DigiChapters/Chapter{{chap}}.txt">Chapter {{chap}}</a>
 			</p>
-			
 		{% endfor %}
-		<!--str(book_id) + "/AudioChapters/Chapter"+str(count)+".wav"-->
 	</div>
 {% endblock %}

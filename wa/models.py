@@ -138,7 +138,7 @@ class Book(models.Model):
     bookName = models.CharField(max_length=200)
     percentageCompleteAudio = models.FloatField(default = 0)
     percentageCompleteDigi = models.FloatField(default = 0)
-    percentageAudioInvalid = models.FloatField(default = 0) 
+    percentageAudioInvalid = models.FloatField(default = 0)
     dBookDownloads = models.PositiveIntegerField(default = 0)
     aBookDownloads = models.PositiveIntegerField(default = 0)
     numberOfChunks = models.PositiveIntegerField(default = 0)
@@ -169,7 +169,7 @@ def concat(book_id):
     offset=1;
     for i in para_no:
         file_name = str(book_id) + "/chunks/" + str(i.id) + "/DigiFiles/1.txt"
-        if i.isChapter == 1:
+        if ((i.isChapter == 1)|(offset==1)):
             infiles_list = []
         infiles_list.append(file_name)
         if(offset<=len(para_no)-1):
@@ -219,14 +219,24 @@ def digiConcatenation(book_id):
                 for line in ins:
                     fout.write(line)
                 fout.write('\n\n')
-        path_pdf='/tmp/digiFiles/'+str(book_id)+'/'+str(count)+'.pdf'       
-        pdfGen(path_final,fontLanguageMap[Lang],path_pdf)   
-        f = open(path_pdf, 'rb')
+        path_pdf='/tmp/digiFiles/'+str(book_id)+'/'+str(count)+'.pdf'
+        '''
+        langVar=fontLanguageMap[Lang]	
+        if(langVar != ""):		
+            pdfGen(path_final,fontLanguageMap[Lang],path_pdf)
+            f = open(path_pdf, 'rb')
+            myfile = File(f)
+            new_name =str(book_id) + "/DigiChapters/Chapter"+str(count)+".pdf"
+            default_storage.save(new_name,myfile)			 
+        else:
+		'''
+        f = open(path_final, 'rb')
         myfile = File(f)
-        new_name =str(book_id) + "/DigiChapters/Chapter"+str(count)+".pdf"
-        default_storage.save(new_name,myfile)
+        new_name =str(book_id) + "/DigiChapters/Chapter"+str(count)+".txt"
+        default_storage.save(new_name,myfile)    		
+        
         os.remove(path_final)
-        os.remove(path_pdf)
+        #os.remove(path_pdf)
         #local_fs.delete(path_final)
         count=count+1
         #fout.write('\f')   
@@ -254,11 +264,12 @@ def checkForCompletion(sender, **kwargs):
     log.info("chunks: " + str(chunks) + "percentageCompleteAudio: " + str(book.percentageCompleteAudio))
     if((chunks != 0) and (book.percentageCompleteAudio == chunks) and (book.shouldConcatAudio == True)):
         log.info("coming inside if condition. Going to call audioconcat")
-        book.shouldConcatAudio = False
-        book.save()
         print("Going to call audio concat")
         #audioConcatenation(book.id) 
-        concatAudio.delay(book.id)
+        #A high value for countdown is needed
+        concatAudio.apply_async(args = [book.id], countdown = 360)
+        book.shouldConcatAudio = False
+        book.save()
         print("Calling Audio concat")
     if((chunks!= 0) and (book.percentageCompleteDigi == chunks) and (book.shouldConcatDigi == True)):
         book.shouldConcatDigi = False

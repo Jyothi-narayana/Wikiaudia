@@ -30,31 +30,31 @@
     <div class="row">
         <div class="col-sm-12">
             <!--<div class="dropdown-wrap">-->
-<<<<<<< HEAD
-				<ul class="dropdown clearfix">
-					<li class="myWebsiteLogo menu-level-0"><span>WikiAudia</span></li>
-		    		<li class="menu-level-0"><a href="/wa/myprofile/"><span>My Profile</span></a></li>
-		    		<li class="menu-level-0"><a href="#"><span>Contribute</span></a></li>
-		    		<li class="menu-level-0"><a href="#"><span>About Us</span></a></li>
-		    		<li class="menu-level-0"><a href="/wa/logout"><span>Logout</span></a></li>
-		    	</ul>
-		    <!--</div>-->
-=======
                 <ul class="dropdown clearfix">
                     <li class="myWebsiteLogo menu-level-0"><span>WikiAudia</span></li>
-                    <li class="menu-level-0"><a href="#"><span>My Profile</span></a></li>
-                    <li class="menu-level-0"><a href="#"><span>Contribute</span></a></li>
+		    		<li class="menu-level-0"><a href="/wa/myprofile/"><span>My Profile</span></a></li>
+                    <li class="menu-level-0"><a href="#"><span>Contribute</span></a>
                         <ul class="submenu-1">
                             <li class="menu-level-1"><a href="/wa/audio">Record a Book</a></li>
                             <li class="menu-level-1"><a href="/wa/digiSelection">Digitize a Book</a></li>
-                            <li class="menu-level-1"><a href="/wa/audio">Validate a Book</a></li>
+                            <li class="menu-level-1"><a href="/wa/valSelection">Validate a Book</a></li>
                             <li class="menu-level-1"><a href="/wa/uploadBook/">Upload a Book</a></li>
                         </ul>
+                    </li>
+<<<<<<< HEAD
+                    <li class="menu-level-0"><a href="#"><span>Browse</span></a>
+                        <ul class="submenu-1">
+                            <li class="menu-level-1"><a href="/wa/browse/">AudioBooks</a></li>
+                            <li class="menu-level-1"><a href="/wa/browse/">Digitize Books</a></li>
+                        </ul>
+                    </li>
                     <li class="menu-level-0"><a href="#"><span>About Us</span></a></li>
+=======
+                    <li class="menu-level-0"><a href="/wa/aboutUs"><span>About Us</span></a></li>
+>>>>>>> 45284d3b3d2d6bd95e6dfe2e68f190fce1951bb2
                     <li class="menu-level-0"><a href="/wa/logout"><span>Logout</span></a></li>
                 </ul>
             <!--</div>-->
->>>>>>> 3391d638e6e7c429c1c72388cd862be6bffd80f8
         </div>
     </div>   
     <div class="container">

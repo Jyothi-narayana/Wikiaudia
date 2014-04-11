@@ -1,7 +1,7 @@
 from __future__ import division
-#from PIL import Image as Image2
+from PIL import Image as Image2
 import math
-#import cv2
+import cv2
 import numpy as np
 from django.core.files.storage import default_storage
 from django.core.files.storage import FileSystemStorage
@@ -199,7 +199,7 @@ def splitBookIntoPages(f_arg, book_id):
     #sys.path.append('/home/jo/wikiaudia/wa/')
     os.environ['DJANGO_SETTINGS_MODULE']='wikiaudia.settings'
     log = logging.getLogger("wa")
-    #log.info("hiiii")
+    log.info("hiiii")
     log.info(f_arg)
     print f_arg
     print "Before IF"

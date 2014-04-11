@@ -1,0 +1,28 @@
+{% extends "wa/base_login.html" %}
+
+{% block content %}
+{% load staticfiles %}
+<script src="{% static "wa/js/jquery.js" %}"></script>
+<script src="{% static "wa/js/audio.js" %}"></script>
+	<div class="col-sm-11 col-sm-offset-1">
+		<div id='allLanguageBooks'>
+		{% for lang in langs %}
+			<div class="row">
+				<h5>{{lang}}</h5>
+		        <div id = "{{lang}}"></div>
+		        <script type="text/javascript">
+		            //document.getElementById("{{lang}}").
+		            	console.log("Language"+"{{lang}}"+"");
+			            $.get('/wa/audio/langBooks/', {language : "{{lang}}"}, function success(data){
+			            	addBooksToPageBrowseDigi(data,"{{lang}}");
+			            }
+
+		            );
+		        </script>
+	        </div>
+	        <br/><br/>
+	        <hr><br/>
+		{% endfor %}
+</div>
+	</div>
+{% endblock %}

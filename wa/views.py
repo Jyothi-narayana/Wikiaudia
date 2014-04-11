@@ -69,13 +69,26 @@ def auth_view(request):
 #Have not done auth.logout(request) 
 def home(request):
     if request.user.is_authenticated():
-        return render_to_response('wa/session/home.html', {'full_name':request.user.first_name,'languages_known':request.user.languages_known,'points':request.user.points })
+        return HttpResponseRedirect('/wa/myprofile/')
+        #return render_to_response('wa/session/home.html', {'full_name':request.user.first_name,'languages_known':request.user.languages_known,'points':request.user.points })
+        #return render_to_response('wa/myprofile.html', {'full_name':request.user.first_name,'languages_known':request.user.languages_known,'points':request.user.points })
         #ret = myprofile(request)
         #return ret
     #return render_to_response('WikiApp/session/home.html', {'full_name':request.user.userprofile.Languages})
     else:
         return HttpResponseRedirect('/wa')
 
+def aboutUs(request):
+	return render_to_response('wa/aboutUs.html')
+
+def aboutUsOut(request):
+	return render_to_response('wa/aboutUsOut.html')
+
+'''	
+def contributeOut(request):
+	return render_to_response('wa/contributeOut.html')
+'''
+	
 def register_user(request):
     emailValue="" 	
     nameValue=""
@@ -129,7 +142,7 @@ def digiSelection(request):
         #langs = Language.objects.all()
 	user_id = request.user.id
 	user_langs = CustomUser.objects.get(pk = user_id).languages_known.split(',')
-        context = RequestContext(request, {'langs': user_langs, } )
+        context = RequestContext(request, {'langs': user_langs,'digi':1 } )
         return render(request, 'wa/chooseLanguage.html', context)
     else :
         return HttpResponseRedirect('/wa')
@@ -147,7 +160,7 @@ def audioSelection(request):
         #context = {'langs': langs}
 	user_id = request.user.id
 	user_langs = CustomUser.objects.get(pk = user_id).languages_known.split(',')
-        context = RequestContext(request, {'langs': user_langs, } )
+        context = RequestContext(request, {'langs': user_langs,'record':1 } )
         return render(request, 'wa/chooseLanguage.html', context)
     else :
         return HttpResponseRedirect('/wa')
@@ -224,6 +237,8 @@ def getImage(request, book_id):
 def digitize(request, book_id):
     if request.user.is_authenticated():
         print("user_id:" + str(request.user.id))
+        book = Book.objects.get(pk = book_id)
+        request.session['language'] = book.lang.langName
         para_id = getChunkID(request.user.id,book_id,1)
         print("para_id: " + str(para_id))
         if(para_id != 0):
@@ -391,7 +406,7 @@ def valSelection(request):
 		request.session['action'] = "validate";
         	user_id = request.user.id
         	user_langs = CustomUser.objects.get(pk = user_id).languages_known.split(',')
-		context = RequestContext(request, {'langs': user_langs, } )
+		context = RequestContext(request, {'langs': user_langs,'valid':1 } )
 		return render(request, 'wa/chooseLanguage.html', context)
 	else :
 		return HttpResponseRedirect('/wa')
@@ -448,6 +463,7 @@ def audioUploadForm(request, book_id, para_id):
             #soundProcessWithAuphonic('documents/Ashu.wav')
             user_id = request.user.id
             #set it before sending it for processing to avoid showing it again for recording But change appropriately if an error occurs while processing
+            log.info("going to call uploadAudioDb")
             uploadAudioDb(para_id, user_id)
             soundProcessingWithAuphonicTask.delay('documents/'+file_name,book_id,para_id,user_id)
     return HttpResponseRedirect(reverse('wa.views.audioSelection')) 
@@ -468,6 +484,9 @@ def langBooks(request):
         languageBooks = languageBooks.exclude(percentageCompleteDigi = F('numberOfChunks'))
     elif(request.session['action'] == "record"):
         languageBooks = languageBooks.exclude(percentageCompleteAudio = F('numberOfChunks'))
+    elif(request.session['action'] == "browse"):
+        languageBooks = languageBooks.exclude(numberOfChunks = 0).filter(percentageCompleteAudio = F('numberOfChunks'))
+    #for browseDigiBooks    
     ret = serializers.serialize("json", languageBooks)
     #resp = HttpResponse(content_type = "application/json");
     #json.dump(languageBooks, resp)
@@ -590,6 +609,7 @@ def browse(request):
     if request.user.is_authenticated():    
         log = logging.getLogger("wa")
         log.info("In browse")    
+        request.session['action'] = "browse"
         user_langs = Language.objects.all()
         #for each language find all it books and select the ones which are completed 
         log.info(user_langs) 
@@ -601,13 +621,40 @@ def browse(request):
         return render(request, 'wa/browse.html', context)
     else :
         return HttpResponseRedirect('/wa')
+def browseD(request):
+    if request.user.is_authenticated():    
+        log = logging.getLogger("wa")
+        log.info("In browse")    
+        request.session['action'] = "browse"
+        user_langs = Language.objects.all()
+        #for each language find all it books and select the ones which are completed 
+        log.info(user_langs) 
+        '''
+        for lang in user_langs:
+            lang_books = Book.objects.
+        '''
+        context = RequestContext(request, {'langs': user_langs, } )
+        return render(request, 'wa/browseDigi.html', context)
+    else :
+        return HttpResponseRedirect('/wa')
+
 def browseAudiobooks(request,book_id):
     if request.user.is_authenticated():
         b = Book.objects.get(id=book_id)
         #Counting the no of chapters in the book given by the book ID
         para = Paragraph.objects.filter(book=b).filter(isChapter=1).count()
         chapterList = range(1,para+1)
-        context = RequestContext(request, {'noChapters': chapterList,'bookName':b.bookName, } )
+        context = RequestContext(request, {'noChapters': chapterList,'bookName':b.bookName, 'book_id': book_id} )
         return render(request, 'wa/browseAudio.html', context)
+    else:
+        return HttpResponseRedirect('/wa')
+def browseDigi(request,book_id):
+    if request.user.is_authenticated():
+        b = Book.objects.get(id=book_id)
+        #Counting the no of chapters in the book given by the book ID
+        para = Paragraph.objects.filter(book=b).filter(isChapter=1).count()
+        chapterList = range(1,para+1)
+        context = RequestContext(request, {'noChapters': chapterList,'bookName':b.bookName, 'book_id': book_id} )
+        return render(request, 'wa/browseDigiDetail.html', context)
     else:
         return HttpResponseRedirect('/wa')

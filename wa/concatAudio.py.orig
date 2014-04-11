@@ -4,7 +4,7 @@ from django.core.files.storage import FileSystemStorage
 import wave
 import time
 from django.core.files import File
-import os
+
 def auConcat(book_id):
     from wa.models import Language,Book, Paragraph, UserHistory, Document, CustomUser# Create your views here.
     log = logging.getLogger("wa")
@@ -47,7 +47,11 @@ def audioConcatenation(book_id):
             local_fs.save(a.name,a)
     for i in all_files_list:  
         data= []
+<<<<<<< HEAD
         temp1 = 0
+=======
+        temp1=0
+>>>>>>> 45284d3b3d2d6bd95e6dfe2e68f190fce1951bb2
         outfile='/tmp/audioFiles/'+str(book_id)+'/'+str(count)+'.wav'
         #with wave.open(outfile, 'wb') as output:        
             # each chapter ka chunk
@@ -56,11 +60,19 @@ def audioConcatenation(book_id):
             w = wave.open(temp, 'rb')
             data.append( [w.getparams(), w.readframes(w.getnframes())] )
             w.close()
+<<<<<<< HEAD
             temp1 = temp1+1
         log.info("Count:  "+str(count))  
         output= wave.open(outfile, 'wb')  
         output.setparams(data[0][0])
         for k in range(0,temp1): 
+=======
+            temp1=temp1+1			 
+        log.info("Count:  "+str(count))  
+        output= wave.open(outfile, 'wb')  
+        output.setparams(data[0][0])
+        for k in range(0,temp1):
+>>>>>>> 45284d3b3d2d6bd95e6dfe2e68f190fce1951bb2
             output.writeframes(data[k][1])
         #output.writeframes(data[0][1])
         #output.writeframes(data[1][1])
@@ -68,9 +80,12 @@ def audioConcatenation(book_id):
         f = open(outfile, 'rb')
         myfile = File(f)
         new_name =str(book_id) + "/AudioChapters/Chapter"+str(count)+".wav"
+<<<<<<< HEAD
         log.info("new_name: "+ new_name)
+=======
+>>>>>>> 45284d3b3d2d6bd95e6dfe2e68f190fce1951bb2
         default_storage.save(new_name,myfile)
-        os.remove(outfile)
+        #os.remove(outfile)
         count=count+1
     log.info("done")
     '''     

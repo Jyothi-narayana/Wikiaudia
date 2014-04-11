@@ -68,6 +68,44 @@ function addBooksToPageBrowseAudio(data,lang)
 	}
 	this.oldvalue = this.value;
 }
+function addBooksToPageBrowseDigi(data,lang)
+{
+	
+	console.log(data)
+	dispDiv = document.getElementById(lang);
+	var allLinks = $('a[id^="waLink_"]')
+	for(j=0;j<allLinks.length;j++)
+	{
+		aLink = allLinks[j]
+		console.log($(aLink).parent('div#dispBooks').length);
+		if(($(aLink).parent('div#dispBooks').length) != 0)
+			dispDiv.removeChild(aLink);
+	} 
+	var json = JSON.parse(data);
+	for(i =0, len = json.length; i < len; ++i)
+	{
+		book = json[i];
+		fig = document.createElement('figure');
+		fig.id = "fig_" + book.pk ;
+		link = document.createElement('a');
+		link.id = "waLink_" + book.pk;
+		link.name = "waLink_" + book.pk;
+		link.href = "/wa/browseDigi/" + book.pk + "/";
+		image = document.createElement('img');
+		image.id = "figimg_" + book.pk;
+		image.height = 200;
+		image.width = 150;
+		image.style.border = "1px solid black";
+		fig.appendChild(image);
+		figcap = document.createElement('figcaption');
+		figcap.id = "figcap_" + book.pk;
+		figcap.innerHTML = book.fields.bookName;
+		fig.appendChild(figcap);
+		link.appendChild(fig);
+        dispDiv.appendChild(link);
+	}
+	this.oldvalue = this.value;
+}
 function addBooksToPage(data,lang,hreftype)
 {
 	//alert(this.oldvalue);
