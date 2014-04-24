@@ -25,8 +25,8 @@ from django.core.files.storage import default_storage
 from django.core.files.storage import FileSystemStorage
 from django.core.files import File
 from wa.paragraphChunks import getChunkID
-from wa.dbOps import uploadDigiDb, uploadAudioDb, validatedAudioDb
-from django.db.models import F
+from wa.dbOps import uploadDigiDb, uploadAudioDb, validatedAudioDb, uploadBookDb
+from django.db.models import F, Q
 import wave
 import BeautifulSoup
 from validate_email import validate_email
@@ -92,7 +92,7 @@ def contributeOut(request):
 def register_user(request):
     emailValue="" 	
     nameValue=""
-    phNo=""	
+    #phNo=""
     if request.method == 'POST':
         form=CustomUserCreationForm(request.POST)
         print("printing from register_user")	
@@ -107,8 +107,8 @@ def register_user(request):
             is_valid = validate_email(val['value'],verify=True)
         except Exception, e:
             is_valid=False		
-        val=soup.find(id="id_phoneNo")
-        phNo=val['value']
+        #val=soup.find(id="id_phoneNo")
+        #phNo=val['value']
         val=soup.find(id="id_first_name")
         nameValue=val['value']		
         print("is_valid")
@@ -358,7 +358,7 @@ def bookParas(request):
     
     
     #bookParagraphs = book.paragraph_set.all()[:10]
-    bookParagraphs = Paragraph.objects.filter(book__id=bookTemp).filter(status='re')[:100]
+    bookParagraphs = Paragraph.objects.filter(book__id=bookTemp).filter(status='va')[:5]
 	
     #bookParagraphs = book.paragraph_set.filter(status_id='re')[:4]
     #bookParagraphs = book.paragraph_set.all.filter(status='re')[:5]
@@ -484,15 +484,22 @@ def langBooks(request):
     language = Language.objects.get(langName = language)
     #Only send those books which aren't finished yet
     #languageBooks = language.book_set.all()
-    languageBooks = Book.objects.filter(lang = language)
+    languageBooks = Book.objects.filter(lang = language).exclude(numberOfChunks = 0)
     if(request.session['action'] == "digitize"):
         languageBooks = languageBooks.exclude(percentageCompleteDigi = F('numberOfChunks'))
     elif(request.session['action'] == "record"):
-        languageBooks = languageBooks.exclude(percentageCompleteAudio = F('numberOfChunks'))
+        #show only those books which are in recording or re-recording status
+        languageBooks = languageBooks.filter(Q(status = 'rec') | Q(status = 'rer'))
     elif(request.session['action'] == "browse"):
-        languageBooks = languageBooks.exclude(numberOfChunks = 0).filter(percentageCompleteAudio = F('numberOfChunks'))
+        languageBooks = languageBooks.filter(percentageCompleteAudio = F('numberOfChunks'))
     elif(request.session['action'] == "validate"):
-        languageBooks = languageBooks.exclude(numberOfChunks = 0)
+        #show only books which have at least one recorded clip. Do not show books which are in done state
+        languageBooks = languageBooks.filter(Q(percentageCompleteAudio__gt = 0)).exclude(status = 'don')
+        #check if a book has any paras in re status
+        for b in languageBooks:
+            parasInVal = Paragraph.objects.filter(book = b).filter(status = "va")
+            if(parasInVal.count() == 0):
+                languageBooks = languageBooks.exclude(pk = b.id)
     ret = serializers.serialize("json", languageBooks)
     #resp = HttpResponse(content_type = "application/json");
     #json.dump(languageBooks, resp)
@@ -513,6 +520,12 @@ def uploadBook(request):
                 log = logging.getLogger("wa")
                 log.info("Upload Book :")
                 log.info(request.POST['language'])
+                language = Language.objects.get(langName = request.POST.get("language", ""))
+                author = request.POST.get("author", "")
+                bookName = request.POST.get("bookName", "")
+                user_id = request.user.id
+                book_id = uploadBookDb(language, author, bookName, user_id)
+                '''
                 b = Book(lang = Language.objects.get(langName = request.POST.get("language", "")), author = request.POST.get("author", ""), bookName = request.POST.get("bookName", ""), shouldConcatAudio = True, shouldConcatDigi = True)
                 b.save()
                 user_id = request.user.id
@@ -522,7 +535,8 @@ def uploadBook(request):
                 user = CustomUser.objects.get(pk = user_id)
                 user.points = user.points + pointsToAward("up")
                 user.save()
-                
+                '''
+                b = Book.objects.get(pk = book_id)
                 newdoc = Document(docfile = request.FILES['docfile'])
 
                 #newdoc.docfile.save(str(b.id) + "/original/originalBook.pdf", request.FILES['docfile'], save=False)

@@ -31,7 +31,8 @@ class CustomUserCreationForm(UserCreationForm):
     Languages = forms.MultipleChoiceField(widget=forms.SelectMultiple,choices=OPTIONS)
     class Meta:
         model = CustomUser
-        fields = ("email","languages_known","first_name",'phoneNo')
+        #fields = ("email","languages_known","first_name",'phoneNo')
+        fields = ("email","languages_known","first_name")
 
 class CustomUserChangeForm(UserChangeForm):
     """A form for updating users. Includes all the fields on

@@ -58,10 +58,10 @@ def soundProcessingWithAuphonicTask(f,book_id,para_id,user_id):
 			continue
 		time.sleep(10)
 		noOfTries=noOfTries+1
-	if detail_object['data']['status_string'] == "Error":
-                log.info("coming into unprocessed")
+	if detail_object['status_code']!=200:
+                log.info("coming into if of sound processing")
 		#use non processed 
-                trialFile = ContentFile(a)
+                trialFile = default_storage.open(f)
                 #JO Decrease something the no of chunks.
 	else:
 		log.info("coming into else of sound processing")

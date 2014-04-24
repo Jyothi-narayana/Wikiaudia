@@ -18,6 +18,7 @@ from django.db.models.signals import post_save#, post_save, pre_delete, post_del
 from django.dispatch import receiver
 import logging
 from datetime import datetime
+from django.db.models import F, Q
 #import wave
 
 
@@ -79,14 +80,16 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     
     languages_known=models.CharField(max_length=50)
     
-    phoneNo = models.BigIntegerField(max_length = 15, error_messages={'required': 'Enter a valid Phone Number'})
+    #phoneNo = models.BigIntegerField(max_length = 15, error_messages={'required': 'Enter a valid Phone Number'})
     loginTimes = models.IntegerField(default=0)
     points = models.IntegerField(default=0)
     
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['languages_known','first_name','phoneNo','loginTimes','points']
+    #REQUIRED_FIELDS = ['languages_known','first_name','phoneNo','loginTimes','points']
+    REQUIRED_FIELDS = ['languages_known','first_name','loginTimes','points']
+
 
     class Meta:
         verbose_name = _('user')
@@ -139,6 +142,7 @@ class Book(models.Model):
     percentageCompleteAudio = models.FloatField(default = 0)
     percentageCompleteDigi = models.FloatField(default = 0)
     percentageAudioInvalid = models.FloatField(default = 0)
+    numberOfChunksDone = models.FloatField(default = 0)
     dBookDownloads = models.PositiveIntegerField(default = 0)
     aBookDownloads = models.PositiveIntegerField(default = 0)
     numberOfChunks = models.PositiveIntegerField(default = 0)
@@ -259,23 +263,29 @@ def digiConcatenation(book_id):
 #check for completion pre_save of Paragraph
 def checkForCompletion(sender, **kwargs): 
     from wa.tasks import concatAudio
+    post_save.disconnect(checkForCompletion, sender=Book)
     log = logging.getLogger("wa")
     log.setLevel(10)
-    log.info("In checkForCompletion")
+    log.info("In checkForCompletion ")
     book = kwargs['instance']
-    log.info("Coming after ndu")
+    #log.info("Coming after ndu")
     #log.info("right i am still coming")
     #log.info(sender)
     log.info("book_id: " + str(book.id))
     chunks = book.numberOfChunks
     log.info("chunks: " + str(chunks) + "percentageCompleteAudio: " + str(book.percentageCompleteAudio))
-    if((chunks != 0) and (book.percentageCompleteAudio == chunks) and (book.shouldConcatAudio == True)):
+    if((chunks != 0) and (book.percentageCompleteAudio == chunks)):
+        #change the status of book to validating
+        book.status = 'val'
+        if(book.shouldConcatAudio == True):
         log.info("coming inside if condition. Going to call audioconcat")
         print("Going to call audio concat")
         #audioConcatenation(book.id) 
         #A high value for countdown is needed
-        concatAudio.apply_async(args = [book.id], countdown = 60)
+        concatAudio.apply_async(args = [book.id], countdown = 360)
+        #**might have to remove
         book.shouldConcatAudio = False
+        book.status = 'val'
         book.save()
         print("Calling Audio concat")
     if((chunks!= 0) and (book.percentageCompleteDigi == chunks) and (book.shouldConcatDigi == True)):
@@ -284,7 +294,87 @@ def checkForCompletion(sender, **kwargs):
         digiConcatenation(book.id)          
         print("Calling pdfGen")
 
+    #check if percentageAudioInvalid has reached 30% of numberOfChunks
+    thresholdForRerecording = int(0.3 * book.numberOfChunks)
+    log.info("thresholdForRerecording " + str(thresholdForRerecording) + "numberOfChunks " + str(book.numberOfChunks))
+    if(thresholdForRerecording == 0):
+        log.info("setting thresholdForRerecording as 1")
+        #number of chunks is less than 4
+        thresholdForRerecording = 1
+    if(int(book.percentageAudioInvalid) >= thresholdForRerecording):
+        log.info("setting the status of book to rerec")
+        #change the status of book to “re recording”
+        book.status = 'rer'
+        book.save()
+        #now find the paras which are incorrect
+        paragraphsToRecord = book.paragraph_set.all().filter(status = 'in')
+        #reset the status to re and reset the assignedTo and readBy
+        for p in paragraphsToRecord:
+            log.info("setting para " + str(p.id) + " to recording state")
+            p.status = 're'
+            p.audioAssignedTo = None
+            p.audioReadBy = None
+            p.save()
+
+        paragraphsDone = book.paragraph_set.all().filter(status = 'co')
+        for p in paragraphsDone:
+            log.info("setting para " + str(p.id) + " to done state")
+            p.status = 'do'
+            p.save()
+        book.numberOfChunksDone = book.numberOfChunksDone + paragraphsDone.count()
+        book.save()
+
+    #if numberOfChunksDone reaches 80%
+    thresholdForBookDone = int(0.8 * book.numberOfChunks)
+    log.info("thresholdForBookDone " + str(thresholdForBookDone) + " numberOfChunks " + str(book.numberOfChunks))
+    if(thresholdForBookDone == 0):
+        log.info("setting thresholdForBookDone as 1")
+        #numberOfChunks is 1
+        thresholdForBookDone = 1
+    if(book.status != 'rec'):
+        if(int(book.numberOfChunksDone) >= thresholdForBookDone):
+            log.info("setting the status of book as done")
+            book.status = 'don'
+            book.save()
+            #change the status of paragraphs to do
+            paras = book.paragraph_set.all()
+            for p in paras:
+                log.info("setting the status of para " + str(p.id) + " to done state")
+                p.status = 'do'
+                p.save()
+    post_save.connect(checkForCompletion, sender=Book)
 post_save.connect(checkForCompletion, sender=Book)
+
+def checkPara(sender, **kwargs):
+    log = logging.getLogger("wa")
+    post_save.disconnect(checkPara, sender=Paragraph)
+    para = kwargs['instance']
+    book = para.book
+    log.info("upVotes: " + str(para.upVotes) + " downvotes: " + str(para.downVotes))
+    sumOfVotes = para.upVotes + para.downVotes
+    #DOO!!>= 20
+    if(int(sumOfVotes) >= 10):
+        log.info("checkPara: Inside Classify of para")
+        #classify the para as done or incorrect
+        if(para.upVotes > para.downVotes):
+            log.info("para " + str(para.id) + " is set to correct state")
+            para.status = 'co'
+            para.save()
+            #increment the count of numberOfChunksDone
+            #log.info("incrementing numberOfChunksDone")
+            #book.numberOfChunksDone = F('numberOfChunksDone') + 1
+            #book.numberOfChunksDone = book.numberOfChunksDone + 1
+            #book.save()
+        else:
+            para.status = 'in'
+            para.save()
+            log.info("Incrementing percentageAudioInvalid")
+            #book.percentageAudioInvalid = F('percentageAudioInvalid') + 1
+            book.percentageAudioInvalid = book.percentageAudioInvalid + 1
+            book.save()
+    post_save.connect(checkPara, sender=Paragraph)
+
+post_save.connect(checkPara, sender=Paragraph)
 
 class UserHistory(models.Model):
     user = models.ForeignKey(CustomUser, null = False)

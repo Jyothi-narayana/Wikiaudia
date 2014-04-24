@@ -13,7 +13,8 @@ class CustomUserAdmin(UserAdmin):
     # that reference the removed 'username' field
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        (_('Personal info'), {'fields': ('first_name', 'last_name','languages_known','phoneNo','points')}),
+        #(_('Personal info'), {'fields': ('first_name', 'last_name','languages_known','phoneNo','points')}),
+        (_('Personal info'), {'fields': ('first_name', 'last_name','languages_known', 'points')}),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
                                        'groups', 'user_permissions','loginTimes')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
@@ -26,7 +27,8 @@ class CustomUserAdmin(UserAdmin):
     )
     form = CustomUserChangeForm
     add_form = CustomUserCreationForm
-    list_display = ('email', 'first_name','languages_known','phoneNo','points')
+    #list_display = ('email', 'first_name','languages_known','phoneNo','points')
+    list_display = ('email', 'first_name','languages_known', 'points')
     search_fields = ('email', 'first_name', 'last_name')
     ordering = ('email',)
 

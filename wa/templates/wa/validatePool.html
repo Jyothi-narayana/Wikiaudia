@@ -17,6 +17,12 @@ function addParasToPage(data)
 {
 	dispDiv = document.getElementById('dispParas');
 	var json = JSON.parse(data);
+	if(json.length == 0)
+	{
+		pElem = document.createElement('p');
+		pElem.innerHTML = "All parts of this book are validated"
+		dispDiv.appendChild(pElem);
+	}
 	for(i =0, len = json.length; i < len; ++i)
 	{
 		//alert(json[i].pk);

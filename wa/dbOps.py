@@ -3,6 +3,19 @@ import logging
 from utilities import pointsToAward
 from django.db.models import F
 
+def uploadBookDb(language, auth, bName, user_id):
+	b = Book(lang = language, author = auth, bookName = bName, shouldConcatAudio = True, shouldConcatDigi = True, status = 'rec')
+	b.save()
+
+	uh = UserHistory(user = CustomUser.objects.get(pk = user_id), action = 'up', uploadedBook = b)
+	uh.save()
+
+	user = CustomUser.objects.get(pk = user_id)
+	user.points = user.points + pointsToAward("up")
+	user.save()
+
+	return b.id
+
 def uploadDigiDb(para_id, user_id):
 	'''
 	a digitized document is uploaded
@@ -57,12 +70,18 @@ def uploadAudioDb(para_id, user_id):
 def validatedAudioDb(para_id, user_id, typeOfVote):
 	#increment the count for para
 	#put in user history
+	log = logging.getLogger("wa")
 	para = Paragraph.objects.get(pk=para_id)
 	if(typeOfVote == "upVote"):
-		para.upVotes = F('upVotes') + 1
+		log.info("paragraph " + str(para_id) + " upvoted by " + str(user_id) + " present upVotes: " + str(para.upVotes))
+		#para.upVotes = F('upVotes') + 1
+		para.upVotes = para.upVotes + 1
+		log.info("after increment: upVotes " + str(para.upVotes))
 		uh = UserHistory(user = CustomUser.objects.get(pk = user_id), action = 'va', paragraph = para, vote = 'up')
 	elif(typeOfVote == "downVote"):
-		para.downVotes = F('downVotes') + 1
+		log.info("paragraph " + str(para_id) + " downvoted by " + str(user_id))
+		#para.downVotes = F('downVotes') + 1
+		para.downVotes = para.downVotes + 1
 		uh = UserHistory(user = CustomUser.objects.get(pk = user_id), action = 'va', paragraph = para, vote = 'do')
 	para.save()
 	uh.save()
